@@ -1,0 +1,3477 @@
+<window>
+	<defaultcontrol always="true">9000</defaultcontrol>
+	<controls>
+		<include>CommonBackground</include>
+		<control type="image">
+			<posx>0</posx>
+			<posy>100r</posy>
+			<width>1280</width>
+			<height>100</height>
+			<texture>floor.png</texture>
+			<include>VisibleFadeEffect</include>
+		</control>
+		<control type="image">
+			<description>Section header image</description>
+			<posx>20</posx>
+			<posy>3</posy>
+			<width>35</width>
+			<height>35</height>
+			<aspectratio>keep</aspectratio>
+			<texture>icon_system.png</texture>
+		</control>
+		<control type="grouplist">
+			<posx>65</posx>
+			<posy>5</posy>
+			<width>1000</width>
+			<height>30</height>
+			<orientation>horizontal</orientation>
+			<align>left</align>
+			<itemgap>5</itemgap>
+			<control type="label">
+				<include>WindowTitleCommons</include>
+				<label>$LOCALIZE[20077]</label>
+			</control>
+			<control type="label">
+				<include>WindowTitleCommons</include>
+				<label>[COLOR=blue] - [/COLOR]$INFO[Container.FolderName]</label>
+				<visible>!IsEmpty(Container.FolderName)</visible>
+			</control>
+		</control>
+		<control type="group">
+			<posx>90</posx>
+			<posy>30</posy>
+			<animation type="WindowOpen" reversible="false">
+				<effect type="zoom" start="80" end="100" center="640,360" easing="out" tween="back" time="300" />
+				<effect type="fade" start="0" end="100" time="300" />
+			</animation>
+			<animation type="WindowClose" reversible="false">
+				<effect type="zoom" start="100" end="80" center="640,360" easing="in" tween="back" time="300" />
+				<effect type="fade" start="100" end="0" time="300" />
+			</animation>
+			<control type="image">
+				<posx>5</posx>
+				<posy>5</posy>
+				<width>1090</width>
+				<height>630</height>
+				<texture border="15">ContentPanel.png</texture>
+			</control>
+			<control type="image">
+				<posx>5</posx>
+				<posy>625</posy>
+				<width>1090</width>
+				<height>64</height>
+				<texture border="15">ContentPanelMirror.png</texture>
+			</control>
+			<control type="button">
+				<description>Close Window button</description>
+				<posx>980</posx>
+				<posy>11</posy>
+				<width>64</width>
+				<height>32</height>
+				<label>-</label>
+				<font>-</font>
+				<onclick>PreviousMenu</onclick>
+				<texturefocus>DialogCloseButton-focus.png</texturefocus>
+				<texturenofocus>DialogCloseButton.png</texturenofocus>
+				<onleft>1</onleft>
+				<onright>1</onright>
+				<onup>1</onup>
+				<ondown>1</ondown>
+				<visible>system.getbool(input.enablemouse)</visible>
+			</control>
+			<control type="image">
+				<description>LOGO</description>
+				<posx>30</posx>
+				<posy>15</posy>
+				<width>220</width>
+				<height>80</height>
+				<aspectratio>keep</aspectratio>
+				<texture>Confluence_Logo.png</texture>
+			</control>
+			<control type="list" id="9000">
+				<posx>10</posx>
+				<posy>90</posy>
+				<width>260</width>
+				<height>481</height>
+				<onleft>9010</onleft>
+				<onright>9010</onright>
+				<onup>9000</onup>
+				<ondown>9000</ondown>
+				<pagecontrol>-</pagecontrol>
+				<scrolltime>300</scrolltime>
+				<itemlayout height="80" width="260">
+					<control type="image">
+						<posx>0</posx>
+						<posy>0</posy>
+						<width>260</width>
+						<height>81</height>
+						<texture border="5">MenuItemNF.png</texture>
+					</control>
+					<control type="label">
+						<posx>250</posx>
+						<posy>15</posy>
+						<width>380</width>
+						<height>25</height>
+						<font>font24_title</font>
+						<textcolor>grey3</textcolor>
+						<align>right</align>
+						<aligny>center</aligny>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+					<control type="label">
+						<posx>250</posx>
+						<posy>42</posy>
+						<width>870</width>
+						<height>25</height>
+						<font>font13</font>
+						<textcolor>grey2</textcolor>
+						<align>right</align>
+						<aligny>center</aligny>
+						<label>$INFO[ListItem.Label2]</label>
+					</control>
+				</itemlayout>
+				<focusedlayout height="80" width="260">
+					<control type="image">
+						<posx>0</posx>
+						<posy>0</posy>
+						<width>260</width>
+						<height>81</height>
+						<texture border="5">MenuItemFO.png</texture>
+						<animation effect="fade" start="100" end="30" time="100" condition="!Control.HasFocus(9000)">Conditional</animation>
+					</control>
+					<control type="label">
+						<posx>250</posx>
+						<posy>15</posy>
+						<width>380</width>
+						<height>25</height>
+						<font>font24_title</font>
+						<textcolor>white</textcolor>
+						<align>right</align>
+						<aligny>center</aligny>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+					<control type="label">
+						<posx>250</posx>
+						<posy>42</posy>
+						<width>870</width>
+						<height>25</height>
+						<font>font13</font>
+						<textcolor>grey2</textcolor>
+						<align>right</align>
+						<aligny>center</aligny>
+						<label>$INFO[ListItem.Label2]</label>
+					</control>
+				</focusedlayout>
+				<content>
+					<item id="1">
+						<label>128</label>
+						<label2>5</label2>
+						<onclick>-</onclick>
+					</item>
+					<item id="2">
+						<label>513</label>
+						<label2>31112</label2>
+						<onclick>-</onclick>
+					</item>
+					<item id="3">
+						<label>31102</label>
+						<label2>31112</label2>
+						<onclick>-</onclick>
+					</item>
+					<item id="4">
+						<label>24000</label>
+						<label2>31200</label2>
+						<onclick>-</onclick>
+					</item>
+					<item id="5">
+						<label>Main menu</label>
+						<label2>Items</label2>
+						<onclick>-</onclick>
+					</item>
+					<item id="6">
+						<label>Submenu</label>
+						<label2>Items</label2>
+						<onclick>-</onclick>
+					</item>
+				</content>
+			</control>
+			<control type="image">
+				<posx>268</posx>
+				<posy>10</posy>
+				<width>790</width>
+				<height>618</height>
+				<texture border="5">black-back2.png</texture>
+			</control>
+			<control type="image">
+				<posx>268</posx>
+				<posy>10</posy>
+				<width>804</width>
+				<height>100</height>
+				<aspectratio>stretch</aspectratio>
+				<texture>GlassTitleBar.png</texture>
+			</control>
+			<control type="label">
+				<description>header label</description>
+				<posx>300</posx>
+				<posy>20</posy>
+				<width>740</width>
+				<height>30</height>
+				<font>font16</font>
+				<label>$LOCALIZE[20077] - $INFO[Container(9000).ListItem.Label]</label>
+				<align>left</align>
+				<aligny>center</aligny>
+				<textcolor>white</textcolor>
+				<shadowcolor>black</shadowcolor>
+			</control>
+			<control type="group" id="9010">
+				<control type="grouplist" id="9001">
+					<visible>Container(9000).Hasfocus(1)</visible>
+					<posx>290</posx>
+					<posy>60</posy>
+					<width>750</width>
+					<height>530</height>
+					<itemgap>-1</itemgap>
+					<pagecontrol>60</pagecontrol>
+					<onleft>9000</onleft>
+					<onright>60</onright>
+					<onup>9001</onup>
+					<ondown>9001</ondown>
+					<control type="label" id="100">
+						<width>750</width>
+						<height>45</height>
+						<font>font13_title</font>
+						<label>31106</label>
+						<textcolor>blue</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<align>left</align>
+						<aligny>center</aligny>
+					</control>
+					<control type="radiobutton" id="101">
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>20189</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick>Skin.ToggleSetting(AutoScroll)</onclick>
+						<selected>Skin.HasSetting(AutoScroll)</selected>
+					</control>
+					<control type="radiobutton" id="102">
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>31103</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick>Skin.ToggleSetting(Show_SlideShow_Paused)</onclick>
+						<selected>!Skin.HasSetting(Show_SlideShow_Paused)</selected>
+					</control>
+					<control type="radiobutton" id="112">
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>31104</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick>Skin.ToggleSetting(WindowedTrailer)</onclick>
+						<selected>Skin.HasSetting(WindowedTrailer)</selected>
+					</control>
+					<control type="radiobutton" id="113">
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>31107</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick>Skin.ToggleSetting(HideFilenameFlagging)</onclick>
+						<selected>Skin.HasSetting(HideFilenameFlagging)</selected>
+					</control>
+					<control type="radiobutton" id="800">
+						<description>Enable Clearlogos</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>90004</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick>Skin.ToggleSetting(EnableLogos)</onclick>
+						<selected>Skin.HasSetting(EnableLogos)</selected>
+					</control>
+					<control type="radiobutton" id="801">
+						<description>Enable Clearart</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>90005</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick>Skin.ToggleSetting(EnableClearart)</onclick>
+						<selected>Skin.HasSetting(EnableClearart)</selected>
+					</control>
+					<control type="label" id="104">
+						<width>750</width>
+						<height>45</height>
+						<font>font13_title</font>
+						<label>20343</label>
+						<textcolor>blue</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<align>left</align>
+						<aligny>center</aligny>
+						<visible>System.HasAddon(script.tvtunes)</visible>
+					</control>
+					<control type="radiobutton" id="115">
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>31126</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick>Skin.ToggleSetting(ActivateTvTunes)</onclick>
+						<selected>Skin.HasSetting(ActivateTvTunes)</selected>
+						<visible>System.HasAddon(script.tvtunes)</visible>
+					</control>
+					<control type="label" id="106">
+						<width>750</width>
+						<height>45</height>
+						<font>font13_title</font>
+						<label>512</label>
+						<textcolor>blue</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<align>left</align>
+						<aligny>center</aligny>
+					</control>
+					<control type="radiobutton" id="107">
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>21398</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick>Skin.ToggleSetting(Use_Startup_Playlist)</onclick>
+						<selected>Skin.HasSetting(Use_Startup_Playlist)</selected>
+					</control>
+					<control type="button" id="108">
+						<description>Startup Playlist Path</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<label>15311</label>
+						<label2>$INFO[Skin.String(Startup_Playlist_Path)]</label2>
+						<onclick>Skin.SetFile(Startup_Playlist_Path,,special://MusicPlaylists/)</onclick>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<enable>Skin.HasSetting(Use_Startup_Playlist)</enable>
+					</control>
+				</control>
+				<control type="scrollbar" id="60">
+					<posx>1060</posx>
+					<posy>60</posy>
+					<width>25</width>
+					<height>530</height>
+					<texturesliderbackground border="0,14,0,14">ScrollBarV.png</texturesliderbackground>
+					<texturesliderbar border="0,14,0,14">ScrollBarV_bar.png</texturesliderbar>
+					<texturesliderbarfocus border="0,14,0,14">ScrollBarV_bar_focus.png</texturesliderbarfocus>
+					<textureslidernib>ScrollBarNib.png</textureslidernib>
+					<textureslidernibfocus>ScrollBarNib.png</textureslidernibfocus>
+					<onleft>9001</onleft>
+					<onright>9000</onright>
+					<showonepage>false</showonepage>
+					<orientation>vertical</orientation>
+					<visible>Container(9000).Hasfocus(1)</visible>
+				</control>
+				<control type="grouplist" id="9002">
+					<visible>Container(9000).Hasfocus(2)</visible>
+					<posx>290</posx>
+					<posy>60</posy>
+					<width>750</width>
+					<height>530</height>
+					<itemgap>-1</itemgap>
+					<pagecontrol>60</pagecontrol>
+					<onleft>9000</onleft>
+					<onright>60</onright>
+					<onup>9002</onup>
+					<ondown>9002</ondown>
+					<control type="label" id="200">
+						<width>750</width>
+						<height>45</height>
+						<font>font13_title</font>
+						<label>31101</label>
+						<textcolor>blue</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<align>left</align>
+						<aligny>center</aligny>
+					</control>
+					<control type="radiobutton" id="202">
+						<description>enable video info</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<label>20176</label>
+						<onclick>Skin.ToggleSetting(homepageVideoinfo)</onclick>
+						<selected>!Skin.HasSetting(homepageVideoinfo)</selected>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+					</control>
+					<control type="radiobutton" id="203">
+						<description>enable music info</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<label>20083</label>
+						<onclick>Skin.ToggleSetting(homepageMusicinfo)</onclick>
+						<selected>!Skin.HasSetting(homepageMusicinfo)</selected>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+					</control>
+					<control type="radiobutton" id="204">
+						<description>enable weather info</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<label>20084</label>
+						<onclick>Skin.ToggleSetting(homepageWeatherinfo)</onclick>
+						<selected>Skin.HasSetting(homepageWeatherinfo)</selected>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<visible>!IsEmpty(Weather.Plugin)</visible>
+					</control>
+					<control type="radiobutton" id="205">
+						<description>Show Recently added Video info</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<label>31117</label>
+						<onclick>Skin.ToggleSetting(HomepageHideRecentlyAddedVideo)</onclick>
+						<onclick condition="Skin.HasSetting(EnableRecommended)">Skin.ToggleSetting(EnableRecommended)</onclick>
+						<selected>!Skin.HasSetting(HomepageHideRecentlyAddedVideo)</selected>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+					</control>
+					<control type="radiobutton" id="206">
+						<description>Show Recently added info</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<label>31116</label>
+						<onclick>Skin.ToggleSetting(HomepageHideRecentlyAddedAlbums)</onclick>
+						<onclick condition="Skin.HasSetting(EnableRecommended)">Skin.ToggleSetting(EnableRecommended)</onclick>
+						<selected>!Skin.HasSetting(HomepageHideRecentlyAddedAlbums)</selected>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+					</control>
+					<control type="radiobutton" id="802">
+						<description>Enable Skin Widgets</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>90001</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick>Skin.ToggleSetting(EnableRecommended)</onclick>
+						<onclick condition="!Skin.HasSetting(HomepageHideRecentlyAddedVideo)">Skin.ToggleSetting(HomepageHideRecentlyAddedVideo)</onclick>
+						<onclick condition="!Skin.HasSetting(HomepageHideRecentlyAddedAlbums)">Skin.ToggleSetting(HomepageHideRecentlyAddedAlbums)</onclick>
+						<selected>Skin.HasSetting(EnableRecommended)</selected>
+						<visible>System.HasAddon(service.skin.widgets)</visible>
+					</control>
+					<control type="radiobutton" id="803">
+						<description>Move concerts to main menu</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>90002</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick>Skin.ToggleSetting(ShowConcerts)</onclick>
+						<selected>Skin.HasSetting(ShowConcerts)</selected>
+					</control>
+					<control type="radiobutton" id="804">
+						<description>Videos behaviour toggle</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>90006</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick>Skin.ToggleSetting(VideosToFiles)</onclick>
+						<selected>Skin.HasSetting(VideosToFiles)</selected>
+					</control>
+					<control type="label" id="220">
+						<width>750</width>
+						<height>45</height>
+						<font>font13_title</font>
+						<label>31108</label>
+						<textcolor>blue</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<align>left</align>
+						<aligny>center</aligny>
+					</control>
+					<control type="radiobutton" id="221">
+						<description>Hide Videos Button</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<label>$LOCALIZE[31111] - $LOCALIZE[3]</label>
+						<onclick>Skin.ToggleSetting(HomeMenuNoVideosButton)</onclick>
+						<selected>Skin.HasSetting(HomeMenuNoVideosButton)</selected>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+					</control>
+					<control type="radiobutton" id="222">
+						<description>Hide Movies Button</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<label>$LOCALIZE[31111] - $LOCALIZE[20342] [COLOR=grey3] ($LOCALIZE[20314])[/COLOR]</label>
+						<onclick>Skin.ToggleSetting(HomeMenuNoMoviesButton)</onclick>
+						<selected>Skin.HasSetting(HomeMenuNoMoviesButton)</selected>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<enable>Library.HasContent(Movies)</enable>
+					</control>
+					<control type="radiobutton" id="223">
+						<description>Hide TV Shows Button</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<label>$LOCALIZE[31111] - $LOCALIZE[20343] [COLOR=grey3] ($LOCALIZE[20314])[/COLOR]</label>
+						<onclick>Skin.ToggleSetting(HomeMenuNoTVShowsButton)</onclick>
+						<selected>Skin.HasSetting(HomeMenuNoTVShowsButton)</selected>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<enable>Library.HasContent(TVShows)</enable>
+					</control>
+					<control type="radiobutton" id="224">
+						<description>Hide Music Button</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<label>$LOCALIZE[31111] - $LOCALIZE[2]</label>
+						<onclick>Skin.ToggleSetting(HomeMenuNoMusicButton)</onclick>
+						<selected>Skin.HasSetting(HomeMenuNoMusicButton)</selected>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+					</control>
+					<control type="radiobutton" id="225">
+						<description>Hide Pictures Button</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<label>$LOCALIZE[31111] - $LOCALIZE[1]</label>
+						<onclick>Skin.ToggleSetting(HomeMenuNoPicturesButton)</onclick>
+						<selected>Skin.HasSetting(HomeMenuNoPicturesButton)</selected>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+					</control>
+					<control type="radiobutton" id="226">
+						<description>Hide Programs Button</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<label>$LOCALIZE[31111] - $LOCALIZE[0]</label>
+						<onclick>Skin.ToggleSetting(HomeMenuNoProgramsButton)</onclick>
+						<selected>Skin.HasSetting(HomeMenuNoProgramsButton)</selected>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+					</control>
+					<control type="radiobutton" id="228">
+						<description>Hide Weather Button</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<label>$LOCALIZE[31111] - $LOCALIZE[8]</label>
+						<onclick>Skin.ToggleSetting(HomeMenuNoWeatherButton)</onclick>
+						<selected>Skin.HasSetting(HomeMenuNoWeatherButton)</selected>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+					</control>
+				</control>
+				<control type="scrollbar" id="60">
+					<posx>1060</posx>
+					<posy>60</posy>
+					<width>25</width>
+					<height>530</height>
+					<texturesliderbackground border="0,14,0,14">ScrollBarV.png</texturesliderbackground>
+					<texturesliderbar border="0,14,0,14">ScrollBarV_bar.png</texturesliderbar>
+					<texturesliderbarfocus border="0,14,0,14">ScrollBarV_bar_focus.png</texturesliderbarfocus>
+					<textureslidernib>ScrollBarNib.png</textureslidernib>
+					<textureslidernibfocus>ScrollBarNib.png</textureslidernibfocus>
+					<onleft>9002</onleft>
+					<onright>9000</onright>
+					<showonepage>false</showonepage>
+					<orientation>vertical</orientation>
+					<visible>Container(9000).Hasfocus(2)</visible>
+				</control>
+				<control type="grouplist" id="9003">
+					<visible>Container(9000).Hasfocus(3)</visible>
+					<posx>290</posx>
+					<posy>60</posy>
+					<width>750</width>
+					<height>530</height>
+					<itemgap>-1</itemgap>
+					<pagecontrol>60</pagecontrol>
+					<onleft>9000</onleft>
+					<onright>60</onright>
+					<onup>9003</onup>
+					<ondown>9003</ondown>
+					<control type="label" id="300">
+						<width>750</width>
+						<height>45</height>
+						<font>font13_title</font>
+						<label>31106</label>
+						<textcolor>blue</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<align>left</align>
+						<aligny>center</aligny>
+					</control>
+					<control type="radiobutton" id="301">
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>31119</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick>Skin.ToggleSetting(HideBackGroundFanart)</onclick>
+						<selected>Skin.HasSetting(HideBackGroundFanart)</selected>
+					</control>
+					<control type="radiobutton" id="302">
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>31129</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick>Skin.ToggleSetting(HideVisualizationFanart)</onclick>
+						<selected>Skin.HasSetting(HideVisualizationFanart)</selected>
+					</control>
+					<control type="radiobutton" id="303">
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>31124</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick>Skin.ToggleSetting(ShowBackgroundVideo)</onclick>
+						<selected>!Skin.HasSetting(ShowBackgroundVideo)</selected>
+					</control>
+					<control type="radiobutton" id="304">
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>31125</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick>Skin.ToggleSetting(ShowBackgroundVis)</onclick>
+						<selected>!Skin.HasSetting(ShowBackgroundVis)</selected>
+					</control>
+					<control type="label" id="310">
+						<width>750</width>
+						<height>45</height>
+						<font>font13_title</font>
+						<label>31102</label>
+						<textcolor>blue</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<align>left</align>
+						<aligny>center</aligny>
+					</control>
+					<control type="radiobutton" id="311">
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>31109</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick>Skin.ToggleSetting(UseCustomBackground)</onclick>
+						<selected>Skin.HasSetting(UseCustomBackground)</selected>
+					</control>
+					<control type="button" id="312">
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>- $LOCALIZE[31110]</label>
+						<label2>[COLOR=selected]$INFO[Skin.String(CustomBackgroundPath)][/COLOR]</label2>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick>Skin.SetImage(CustomBackgroundPath)</onclick>
+						<enable>Skin.HasSetting(UseCustomBackground)</enable>
+					</control>
+				</control>
+				<control type="group">
+					<control type="grouplist" id="9004">
+						<visible>Container(9000).Hasfocus(4)</visible>
+						<posx>290</posx>
+						<posy>60</posy>
+						<width>750</width>
+						<height>530</height>
+						<itemgap>-1</itemgap>
+						<pagecontrol>61</pagecontrol>
+						<onleft>9000</onleft>
+						<onright>61</onright>
+						<onup>9004</onup>
+						<ondown>9004</ondown>
+						<control type="label" id="453">
+							<width>750</width>
+							<height>45</height>
+							<font>font13_title</font>
+							<label>31140</label>
+							<textcolor>blue</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<align>left</align>
+							<aligny>center</aligny>
+						</control>
+						<control type="button" id="455">
+							<width>750</width>
+							<height>40</height>
+							<font>font13</font>
+							<label>$LOCALIZE[31132]</label>
+							<label2>[COLOR=selected]$INFO[system.addontitle(Skin.String(LyricScript_Path))][/COLOR]</label2>
+							<textcolor>grey2</textcolor>
+							<focusedcolor>white</focusedcolor>
+							<texturefocus>MenuItemFO.png</texturefocus>
+							<texturenofocus>MenuItemNF.png</texturenofocus>
+							<onclick>Skin.SetAddon(LyricScript_Path,xbmc.python.lyrics)</onclick>
+						</control>
+						<control type="button" id="456">
+							<width>750</width>
+							<height>40</height>
+							<font>font13</font>
+							<label>- $LOCALIZE[24020]</label>
+							<textcolor>grey2</textcolor>
+							<focusedcolor>white</focusedcolor>
+							<texturefocus>MenuItemFO.png</texturefocus>
+							<texturenofocus>MenuItemNF.png</texturenofocus>
+							<enable>!IsEmpty(Skin.String(LyricScript_Path))</enable>
+							<onclick>Addon.OpenSettings($INFO[Skin.String(LyricScript_Path)])</onclick>
+						</control> 
+						<control type="label" id="457">
+							<width>750</width>
+							<height>45</height>
+							<font>font13_title</font>
+							<label>31141</label>
+							<textcolor>blue</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<align>left</align>
+							<aligny>center</aligny>
+						</control>
+						<control type="button" id="458">
+							<width>750</width>
+							<height>40</height>
+							<font>font13</font>
+							<label>$LOCALIZE[31133]</label>
+							<label2>[COLOR=selected]$INFO[system.addontitle(Skin.String(SubtitleScript_Path))][/COLOR]</label2>
+							<textcolor>grey2</textcolor>
+							<focusedcolor>white</focusedcolor>
+							<texturefocus>MenuItemFO.png</texturefocus>
+							<texturenofocus>MenuItemNF.png</texturenofocus>
+							<onclick>Skin.SetAddon(SubtitleScript_Path,xbmc.python.subtitles)</onclick>
+						</control>
+						<control type="button" id="459">
+							<width>750</width>
+							<height>40</height>
+							<font>font13</font>
+							<label>- $LOCALIZE[24020]</label>
+							<textcolor>grey2</textcolor>
+							<focusedcolor>white</focusedcolor>
+							<texturefocus>MenuItemFO.png</texturefocus>
+							<texturenofocus>MenuItemNF.png</texturenofocus>
+							<enable>!IsEmpty(Skin.String(SubtitleScript_Path))</enable>
+							<onclick>Addon.OpenSettings($INFO[Skin.String(SubtitleScript_Path)])</onclick>
+						</control> 
+
+						<control type="label" id="410">
+							<width>750</width>
+							<height>45</height>
+							<font>font13_title</font>
+							<label>31134</label>
+							<textcolor>blue</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<align>left</align>
+							<aligny>center</aligny>
+						</control>
+						<control type="button" id="411">
+							<width>750</width>
+							<height>40</height>
+							<font>font13</font>
+							<label>$LOCALIZE[24000] [B]1[/B]</label>
+							<label2>[COLOR=selected]$INFO[system.addontitle(Skin.String(HomeVideosButton1))][/COLOR]</label2>
+							<textcolor>grey2</textcolor>
+							<focusedcolor>white</focusedcolor>
+							<texturefocus>MenuItemFO.png</texturefocus>
+							<texturenofocus>MenuItemNF.png</texturenofocus>
+							<onclick>Skin.SetAddon(HomeVideosButton1,xbmc.addon.video,xbmc.addon.executable)</onclick>
+						</control>
+						<control type="button" id="412">
+							<width>750</width>
+							<height>40</height>
+							<font>font13</font>
+							<label>$LOCALIZE[24000] [B]2[/B]</label>
+							<label2>[COLOR=selected]$INFO[system.addontitle(Skin.String(HomeVideosButton2))][/COLOR]</label2>
+							<textcolor>grey2</textcolor>
+							<focusedcolor>white</focusedcolor>
+							<texturefocus>MenuItemFO.png</texturefocus>
+							<texturenofocus>MenuItemNF.png</texturenofocus>
+							<onclick>Skin.SetAddon(HomeVideosButton2,xbmc.addon.video,xbmc.addon.executable)</onclick>
+						</control>
+						<control type="button" id="413">
+							<width>750</width>
+							<height>40</height>
+							<font>font13</font>
+							<label>$LOCALIZE[24000] [B]3[/B]</label>
+							<label2>[COLOR=selected]$INFO[system.addontitle(Skin.String(HomeVideosButton3))][/COLOR]</label2>
+							<textcolor>grey2</textcolor>
+							<focusedcolor>white</focusedcolor>
+							<texturefocus>MenuItemFO.png</texturefocus>
+							<texturenofocus>MenuItemNF.png</texturenofocus>
+							<onclick>Skin.SetAddon(HomeVideosButton3,xbmc.addon.video,xbmc.addon.executable)</onclick>
+						</control>
+						<control type="button" id="414">
+							<width>750</width>
+							<height>40</height>
+							<font>font13</font>
+							<label>$LOCALIZE[24000] [B]4[/B]</label>
+							<label2>[COLOR=selected]$INFO[system.addontitle(Skin.String(HomeVideosButton4))][/COLOR]</label2>
+							<textcolor>grey2</textcolor>
+							<focusedcolor>white</focusedcolor>
+							<texturefocus>MenuItemFO.png</texturefocus>
+							<texturenofocus>MenuItemNF.png</texturenofocus>
+							<onclick>Skin.SetAddon(HomeVideosButton4,xbmc.addon.video,xbmc.addon.executable)</onclick>
+						</control>
+						<control type="button" id="415">
+							<width>750</width>
+							<height>40</height>
+							<font>font13</font>
+							<label>$LOCALIZE[24000] [B]5[/B]</label>
+							<label2>[COLOR=selected]$INFO[system.addontitle(Skin.String(HomeVideosButton5))][/COLOR]</label2>
+							<textcolor>grey2</textcolor>
+							<focusedcolor>white</focusedcolor>
+							<texturefocus>MenuItemFO.png</texturefocus>
+							<texturenofocus>MenuItemNF.png</texturenofocus>
+							<onclick>Skin.SetAddon(HomeVideosButton5,xbmc.addon.video,xbmc.addon.executable)</onclick>
+						</control>
+
+						<control type="label" id="420">
+							<width>750</width>
+							<height>45</height>
+							<font>font13_title</font>
+							<label>31135</label>
+							<textcolor>blue</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<align>left</align>
+							<aligny>center</aligny>
+						</control>
+						<control type="button" id="421">
+							<width>750</width>
+							<height>40</height>
+							<font>font13</font>
+							<label>$LOCALIZE[24000] [B]1[/B]</label>
+							<label2>[COLOR=selected]$INFO[system.addontitle(Skin.String(HomeMusicButton1))][/COLOR]</label2>
+							<textcolor>grey2</textcolor>
+							<focusedcolor>white</focusedcolor>
+							<texturefocus>MenuItemFO.png</texturefocus>
+							<texturenofocus>MenuItemNF.png</texturenofocus>
+							<onclick>Skin.SetAddon(HomeMusicButton1,xbmc.addon.audio,xbmc.addon.executable)</onclick>
+						</control>
+						<control type="button" id="422">
+							<width>750</width>
+							<height>40</height>
+							<font>font13</font>
+							<label>$LOCALIZE[24000] [B]2[/B]</label>
+							<label2>[COLOR=selected]$INFO[system.addontitle(Skin.String(HomeMusicButton2))][/COLOR]</label2>
+							<textcolor>grey2</textcolor>
+							<focusedcolor>white</focusedcolor>
+							<texturefocus>MenuItemFO.png</texturefocus>
+							<texturenofocus>MenuItemNF.png</texturenofocus>
+							<onclick>Skin.SetAddon(HomeMusicButton2,xbmc.addon.audio,xbmc.addon.executable)</onclick>
+						</control>
+						<control type="button" id="423">
+							<width>750</width>
+							<height>40</height>
+							<font>font13</font>
+							<label>$LOCALIZE[24000] [B]3[/B]</label>
+							<label2>[COLOR=selected]$INFO[system.addontitle(Skin.String(HomeMusicButton3))][/COLOR]</label2>
+							<textcolor>grey2</textcolor>
+							<focusedcolor>white</focusedcolor>
+							<texturefocus>MenuItemFO.png</texturefocus>
+							<texturenofocus>MenuItemNF.png</texturenofocus>
+							<onclick>Skin.SetAddon(HomeMusicButton3,xbmc.addon.audio,xbmc.addon.executable)</onclick>
+						</control>
+						<control type="button" id="424">
+							<width>750</width>
+							<height>40</height>
+							<font>font13</font>
+							<label>$LOCALIZE[24000] [B]4[/B]</label>
+							<label2>[COLOR=selected]$INFO[system.addontitle(Skin.String(HomeMusicButton4))][/COLOR]</label2>
+							<textcolor>grey2</textcolor>
+							<focusedcolor>white</focusedcolor>
+							<texturefocus>MenuItemFO.png</texturefocus>
+							<texturenofocus>MenuItemNF.png</texturenofocus>
+							<onclick>Skin.SetAddon(HomeMusicButton4,xbmc.addon.audio,xbmc.addon.executable)</onclick>
+						</control>
+						<control type="button" id="425">
+							<width>750</width>
+							<height>40</height>
+							<font>font13</font>
+							<label>$LOCALIZE[24000] [B]5[/B]</label>
+							<label2>[COLOR=selected]$INFO[system.addontitle(Skin.String(HomeMusicButton5))][/COLOR]</label2>
+							<textcolor>grey2</textcolor>
+							<focusedcolor>white</focusedcolor>
+							<texturefocus>MenuItemFO.png</texturefocus>
+							<texturenofocus>MenuItemNF.png</texturenofocus>
+							<onclick>Skin.SetAddon(HomeMusicButton5,xbmc.addon.audio,xbmc.addon.executable)</onclick>
+						</control>
+
+						<control type="label" id="430">
+							<width>750</width>
+							<height>45</height>
+							<font>font13_title</font>
+							<label>31136</label>
+							<textcolor>blue</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<align>left</align>
+							<aligny>center</aligny>
+						</control>
+						<control type="button" id="431">
+							<width>750</width>
+							<height>40</height>
+							<font>font13</font>
+							<label>$LOCALIZE[24000] [B]1[/B]</label>
+							<label2>[COLOR=selected]$INFO[system.addontitle(Skin.String(HomePictureButton1))][/COLOR]</label2>
+							<textcolor>grey2</textcolor>
+							<focusedcolor>white</focusedcolor>
+							<texturefocus>MenuItemFO.png</texturefocus>
+							<texturenofocus>MenuItemNF.png</texturenofocus>
+							<onclick>Skin.SetAddon(HomePictureButton1,xbmc.addon.image,xbmc.addon.executable)</onclick>
+						</control>
+						<control type="button" id="432">
+							<width>750</width>
+							<height>40</height>
+							<font>font13</font>
+							<label>$LOCALIZE[24000] [B]2[/B]</label>
+							<label2>[COLOR=selected]$INFO[system.addontitle(Skin.String(HomePictureButton2))][/COLOR]</label2>
+							<textcolor>grey2</textcolor>
+							<focusedcolor>white</focusedcolor>
+							<texturefocus>MenuItemFO.png</texturefocus>
+							<texturenofocus>MenuItemNF.png</texturenofocus>
+							<onclick>Skin.SetAddon(HomePictureButton2,xbmc.addon.image,xbmc.addon.executable)</onclick>
+						</control>
+						<control type="button" id="433">
+							<width>750</width>
+							<height>40</height>
+							<font>font13</font>
+							<label>$LOCALIZE[24000] [B]3[/B]</label>
+							<label2>[COLOR=selected]$INFO[system.addontitle(Skin.String(HomePictureButton3))][/COLOR]</label2>
+							<textcolor>grey2</textcolor>
+							<focusedcolor>white</focusedcolor>
+							<texturefocus>MenuItemFO.png</texturefocus>
+							<texturenofocus>MenuItemNF.png</texturenofocus>
+							<onclick>Skin.SetAddon(HomePictureButton3,xbmc.addon.image,xbmc.addon.executable)</onclick>
+						</control>
+						<control type="button" id="434">
+							<width>750</width>
+							<height>40</height>
+							<font>font13</font>
+							<label>$LOCALIZE[24000] [B]4[/B]</label>
+							<label2>[COLOR=selected]$INFO[system.addontitle(Skin.String(HomePictureButton4))][/COLOR]</label2>
+							<textcolor>grey2</textcolor>
+							<focusedcolor>white</focusedcolor>
+							<texturefocus>MenuItemFO.png</texturefocus>
+							<texturenofocus>MenuItemNF.png</texturenofocus>
+							<onclick>Skin.SetAddon(HomePictureButton4,xbmc.addon.image,xbmc.addon.executable)</onclick>
+						</control>
+						<control type="button" id="435">
+							<width>750</width>
+							<height>40</height>
+							<font>font13</font>
+							<label>$LOCALIZE[24000] [B]5[/B]</label>
+							<label2>[COLOR=selected]$INFO[system.addontitle(Skin.String(HomePictureButton5))][/COLOR]</label2>
+							<textcolor>grey2</textcolor>
+							<focusedcolor>white</focusedcolor>
+							<texturefocus>MenuItemFO.png</texturefocus>
+							<texturenofocus>MenuItemNF.png</texturenofocus>
+							<onclick>Skin.SetAddon(HomePictureButton5,xbmc.addon.image,xbmc.addon.executable)</onclick>
+						</control>
+
+						<control type="label" id="440">
+							<width>750</width>
+							<height>45</height>
+							<font>font13_title</font>
+							<label>31118</label>
+							<textcolor>blue</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<align>left</align>
+							<aligny>center</aligny>
+						</control>
+						<control type="button" id="441">
+							<width>750</width>
+							<height>40</height>
+							<font>font13</font>
+							<label>$LOCALIZE[24000] [B]1[/B]</label>
+							<label2>[COLOR=selected]$INFO[system.addontitle(Skin.String(HomeProgramButton1))][/COLOR]</label2>
+							<textcolor>grey2</textcolor>
+							<focusedcolor>white</focusedcolor>
+							<texturefocus>MenuItemFO.png</texturefocus>
+							<texturenofocus>MenuItemNF.png</texturenofocus>
+							<onclick>Skin.SetAddon(HomeProgramButton1,xbmc.addon.executable)</onclick>
+						</control>
+						<control type="button" id="442">
+							<width>750</width>
+							<height>40</height>
+							<font>font13</font>
+							<label>$LOCALIZE[24000] [B]2[/B]</label>
+							<label2>[COLOR=selected]$INFO[system.addontitle(Skin.String(HomeProgramButton2))][/COLOR]</label2>
+							<textcolor>grey2</textcolor>
+							<focusedcolor>white</focusedcolor>
+							<texturefocus>MenuItemFO.png</texturefocus>
+							<texturenofocus>MenuItemNF.png</texturenofocus>
+							<onclick>Skin.SetAddon(HomeProgramButton2,xbmc.addon.executable)</onclick>
+						</control>
+						<control type="button" id="443">
+							<width>750</width>
+							<height>40</height>
+							<font>font13</font>
+							<label>$LOCALIZE[24000] [B]3[/B]</label>
+							<label2>[COLOR=selected]$INFO[system.addontitle(Skin.String(HomeProgramButton3))][/COLOR]</label2>
+							<textcolor>grey2</textcolor>
+							<focusedcolor>white</focusedcolor>
+							<texturefocus>MenuItemFO.png</texturefocus>
+							<texturenofocus>MenuItemNF.png</texturenofocus>
+							<onclick>Skin.SetAddon(HomeProgramButton3,xbmc.addon.executable)</onclick>
+						</control>
+						<control type="button" id="444">
+							<width>750</width>
+							<height>40</height>
+							<font>font13</font>
+							<label>$LOCALIZE[24000] [B]4[/B]</label>
+							<label2>[COLOR=selected]$INFO[system.addontitle(Skin.String(HomeProgramButton4))][/COLOR]</label2>
+							<textcolor>grey2</textcolor>
+							<focusedcolor>white</focusedcolor>
+							<texturefocus>MenuItemFO.png</texturefocus>
+							<texturenofocus>MenuItemNF.png</texturenofocus>
+							<onclick>Skin.SetAddon(HomeProgramButton4,xbmc.addon.executable)</onclick>
+						</control>
+						<control type="button" id="445">
+							<width>750</width>
+							<height>40</height>
+							<font>font13</font>
+							<label>$LOCALIZE[24000] [B]5[/B]</label>
+							<label2>[COLOR=selected]$INFO[system.addontitle(Skin.String(HomeProgramButton5))][/COLOR]</label2>
+							<textcolor>grey2</textcolor>
+							<focusedcolor>white</focusedcolor>
+							<texturefocus>MenuItemFO.png</texturefocus>
+							<texturenofocus>MenuItemNF.png</texturenofocus>
+							<onclick>Skin.SetAddon(HomeProgramButton5,xbmc.addon.executable)</onclick>
+						</control>
+						<control type="button" id="446">
+							<width>750</width>
+							<height>40</height>
+							<font>font13</font>
+							<label>$LOCALIZE[24000] [B]6[/B]</label>
+							<label2>[COLOR=selected]$INFO[system.addontitle(Skin.String(HomeProgramButton6))][/COLOR]</label2>
+							<textcolor>grey2</textcolor>
+							<focusedcolor>white</focusedcolor>
+							<texturefocus>MenuItemFO.png</texturefocus>
+							<texturenofocus>MenuItemNF.png</texturenofocus>
+							<onclick>Skin.SetAddon(HomeProgramButton6,xbmc.addon.executable)</onclick>
+						</control>
+					</control>
+						<control type="scrollbar" id="61">
+						<posx>1060</posx>
+						<posy>60</posy>
+						<width>25</width>
+						<height>530</height>
+						<texturesliderbackground border="0,14,0,14">ScrollBarV.png</texturesliderbackground>
+						<texturesliderbar border="0,14,0,14">ScrollBarV_bar.png</texturesliderbar>
+						<texturesliderbarfocus border="0,14,0,14">ScrollBarV_bar_focus.png</texturesliderbarfocus>
+						<textureslidernib>ScrollBarNib.png</textureslidernib>
+						<textureslidernibfocus>ScrollBarNib.png</textureslidernibfocus>
+						<onleft>9004</onleft>
+						<onright>9000</onright>
+						<showonepage>false</showonepage>
+						<orientation>vertical</orientation>
+						<visible>Container(9000).Hasfocus(4)</visible>
+					</control>
+				</control>
+				<control type="grouplist" id="9998">
+					<visible>Container(9000).Hasfocus(5)</visible>
+					<posx>290</posx>
+					<posy>60</posy>
+					<width>750</width>
+					<height>530</height>
+					<itemgap>-1</itemgap>
+					<pagecontrol>850</pagecontrol>
+					<onleft>9000</onleft>
+					<onright>1012</onright>
+					<onup>9998</onup>
+					<ondown>9998</ondown>
+					<control type="label" id="805">
+						<width>750</width>
+						<height>45</height>
+						<font>font13_title</font>
+						<label>90003</label>
+						<textcolor>blue</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<align>left</align>
+						<aligny>center</aligny>
+					</control>
+					<control type="radiobutton" id="806">
+						<description>Enable item 1</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>90020</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<selected>Skin.HasSetting(CustomMenu.1.Enabled)</selected>
+						<onclick>Skin.ToggleSetting(CustomMenu.1.Enabled)</onclick>
+						<onclick>Skin.Reset(CustomMenu.1.Type)</onclick>
+						<onclick>Skin.Reset(CustomMenu.1.Path)</onclick>
+						<onclick>Skin.Reset(CustomMenu.1.Label)</onclick>
+						<onclick>Skin.Reset(CustomMenu.1.Icon)</onclick>
+						<onclick>Skin.Reset(CustomMenu.1.Subtype)</onclick>
+						<onclick>Skin.Reset(CustomMenu.1.AddonType)</onclick>
+					</control>
+					<control type="button" id="807">
+						<description>Item type</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>90007</label>
+						<label2>[COLOR=selected]$INFO[Skin.String(CustomMenu.1.Type)][/COLOR]</label2>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick condition="Stringcompare(Skin.String(CustomMenu.1.Type),Favourite) | IsEmpty(Skin.String(CustomMenu.1.Type))">Skin.SetString(CustomMenu.1.Type,Addon)</onclick>
+                		<onclick condition="Stringcompare(Skin.String(CustomMenu.1.Type),Music Playlist)">Skin.SetString(CustomMenu.1.Type,Favourite)</onclick>
+                		<onclick condition="Stringcompare(Skin.String(CustomMenu.1.Type),Video Playlist)">Skin.SetString(CustomMenu.1.Type,Music Playlist)</onclick>
+                		<onclick condition="Stringcompare(Skin.String(CustomMenu.1.Type),Addon)">Skin.SetString(CustomMenu.1.Type,Video Playlist)</onclick>
+                		<onclick condition="Stringcompare(Skin.String(CustomMenu.1.Type),Favourite)">Skin.SetString(CustomMenu.1.Type,Addon)</onclick>
+                		<onclick>Skin.Reset(CustomMenu.1.Path)</onclick>
+                		<onclick>Skin.Reset(CustomMenu.1.Label)</onclick>
+                		<onclick>Skin.Reset(CustomMenu.1.Icon)</onclick>
+                		<onclick>Skin.Reset(CustomMenu.1.Subtype)</onclick>
+                		<onclick>Skin.Reset(CustomMenu.1.AddonType)</onclick>
+						<visible>Skin.HasSetting(CustomMenu.1.Enabled)</visible>
+					</control>
+					<control type="button" id="808">
+						<description>Item selection</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>90008</label>
+						<label2>[COLOR=selected]$INFO[Skin.String(CustomMenu.1.Label)][/COLOR]</label2>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick condition="Stringcompare(Skin.String(CustomMenu.1.Type),Video Playlist)">Skin.SetFile(CustomMenu.1.Path,.xsp,special://videoplaylists)</onclick>
+						<onclick condition="Stringcompare(Skin.String(CustomMenu.1.Type),Music Playlist)">Skin.SetFile(CustomMenu.1.Path,.xsp|.m3u,special://musicplaylists)</onclick>
+						<onclick condition="Stringcompare(Skin.String(CustomMenu.1.Type),Favourite)">RunScript(script.favourites,property=CustomMenu.1)</onclick>
+						<onclick condition="Stringcompare(Skin.String(CustomMenu.1.Type),Addon)">Skin.SetAddon(CustomMenu.1.Path,xbmc.addon.video,xbmc.addon.audio,xbmc.addon.image,xbmc.addon.executable)</onclick>
+						<onclick>Skin.Reset(CustomMenu.1.Label)</onclick>
+						<onclick condition="Stringcompare(Skin.String(CustomMenu.1.Type),Video Playlist) | Stringcompare(Skin.String(CustomMenu.1.Type),Music Playlist)">Skin.SetString(CustomMenu.1.Label)</onclick>
+						<onclick condition="Stringcompare(Skin.String(CustomMenu.1.Type),Addon)">Skin.SetString(CustomMenu.1.Label,$INFO[system.addontitle(Skin.String(CustomMenu.1.Path))])</onclick>
+						<visible>Skin.HasSetting(CustomMenu.1.Enabled)</visible>
+					</control>
+
+					<control type="button" id="809">
+						<description>Name</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>90011</label>
+						<label2>[COLOR=selected]$INFO[Skin.String(CustomMenu.1.Label)][/COLOR]</label2>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick>Skin.SetString(CustomMenu.1.Label)</onclick>
+						<visible>Skin.HasSetting(CustomMenu.1.Enabled) + [Stringcompare(Skin.String(CustomMenu.1.Type),Favourite) | Stringcompare(Skin.String(CustomMenu.1.Type),Addon)]</visible>
+					</control>
+
+					<control type="button" id="810">
+						<description>Submenu type</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>90023</label>
+						<label2>[COLOR=selected]$INFO[Skin.String(CustomMenu.1.SubType)][/COLOR]</label2>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick condition="Stringcompare(Skin.String(CustomMenu.1.Subtype),System) | IsEmpty(Skin.String(CustomMenu.1.Subtype))">Skin.SetString(CustomMenu.1.Subtype,None)</onclick>
+						<onclick condition="Stringcompare(Skin.String(CustomMenu.1.Subtype),System)">Skin.SetString(CustomMenu.1.Subtype,None)</onclick>
+						<onclick condition="Stringcompare(Skin.String(CustomMenu.1.Subtype),Music)">Skin.SetString(CustomMenu.1.Subtype,System)</onclick>
+						<onclick condition="Stringcompare(Skin.String(CustomMenu.1.Subtype),TV Shows)">Skin.SetString(CustomMenu.1.Subtype,Music)</onclick>
+						<onclick condition="Stringcompare(Skin.String(CustomMenu.1.Subtype),Movies)">Skin.SetString(CustomMenu.1.Subtype,TV Shows)</onclick>
+						<onclick condition="Stringcompare(Skin.String(CustomMenu.1.Subtype),Videos)">Skin.SetString(CustomMenu.1.Subtype,Movies)</onclick>
+						<onclick condition="Stringcompare(Skin.String(CustomMenu.1.Subtype),Pictures)">Skin.SetString(CustomMenu.1.Subtype,Videos)</onclick>
+						<onclick condition="Stringcompare(Skin.String(CustomMenu.1.Subtype),None)">Skin.SetString(CustomMenu.1.Subtype,Pictures)</onclick>
+						<onclick condition="Stringcompare(Skin.String(CustomMenu.1.Subtype),System)">Skin.SetString(CustomMenu.1.Subtype,None)</onclick>
+						<visible>Skin.HasSetting(CustomMenu.1.Enabled)</visible>
+					</control>
+
+					<control type="button" id="811">
+						<description>Addon type</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>90024</label>
+						<label2>[COLOR=selected]$INFO[Skin.String(CustomMenu.1.AddonType)][/COLOR]</label2>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick condition="Stringcompare(Skin.String(CustomMenu.1.AddonType),Programs) | IsEmpty(Skin.String(CustomMenu.1.AddonType))">Skin.SetString(CustomMenu.1.AddonType,None)</onclick>
+                		<onclick condition="Stringcompare(Skin.String(CustomMenu.1.AddonType),Music)">Skin.SetString(CustomMenu.1.AddonType,Programs)</onclick>
+                		<onclick condition="Stringcompare(Skin.String(CustomMenu.1.AddonType),Videos)">Skin.SetString(CustomMenu.1.AddonType,Music)</onclick>
+                		<onclick condition="Stringcompare(Skin.String(CustomMenu.1.AddonType),Pictures)">Skin.SetString(CustomMenu.1.AddonType,Videos)</onclick>
+                		<onclick condition="Stringcompare(Skin.String(CustomMenu.1.AddonType),None)">Skin.SetString(CustomMenu.1.AddonType,Pictures)</onclick>
+                		<onclick condition="Stringcompare(Skin.String(CustomMenu.1.AddonType),Programs)">Skin.SetString(CustomMenu.1.AddonType,None)</onclick>
+						<visible>Skin.HasSetting(CustomMenu.1.Enabled)</visible>
+					</control>
+
+					<control type="radiobutton" id="812">
+						<description>Enable item 2</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>90021</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<selected>Skin.HasSetting(CustomMenu.2.Enabled)</selected>
+						<onclick>Skin.ToggleSetting(CustomMenu.2.Enabled)</onclick>
+						<onclick>Skin.Reset(CustomMenu.2.Type)</onclick>
+						<onclick>Skin.Reset(CustomMenu.2.Path)</onclick>
+						<onclick>Skin.Reset(CustomMenu.2.Label)</onclick>
+						<onclick>Skin.Reset(CustomMenu.2.Icon)</onclick>
+						<onclick>Skin.Reset(CustomMenu.2.Subtype)</onclick>
+						<onclick>Skin.Reset(CustomMenu.2.AddonType)</onclick>
+					</control>
+					<control type="button" id="813">
+						<description>Item type</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>90007</label>
+						<label2>[COLOR=selected]$INFO[Skin.String(CustomMenu.2.Type)][/COLOR]</label2>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick condition="Stringcompare(Skin.String(CustomMenu.2.Type),Favourite) | IsEmpty(Skin.String(CustomMenu.2.Type))">Skin.SetString(CustomMenu.2.Type,Addon)</onclick>
+                		<onclick condition="Stringcompare(Skin.String(CustomMenu.2.Type),Music Playlist)">Skin.SetString(CustomMenu.2.Type,Favourite)</onclick>
+                		<onclick condition="Stringcompare(Skin.String(CustomMenu.2.Type),Video Playlist)">Skin.SetString(CustomMenu.2.Type,Music Playlist)</onclick>
+                		<onclick condition="Stringcompare(Skin.String(CustomMenu.2.Type),Addon)">Skin.SetString(CustomMenu.2.Type,Video Playlist)</onclick>
+                		<onclick condition="Stringcompare(Skin.String(CustomMenu.2.Type),Favourite)">Skin.SetString(CustomMenu.2.Type,Addon)</onclick>
+                		<onclick>Skin.Reset(CustomMenu.2.Path)</onclick>
+                		<onclick>Skin.Reset(CustomMenu.2.Label)</onclick>
+                		<onclick>Skin.Reset(CustomMenu.2.Icon)</onclick>
+                		<onclick>Skin.Reset(CustomMenu.2.Subtype)</onclick>
+                		<onclick>Skin.Reset(CustomMenu.2.AddonType)</onclick>
+						<visible>Skin.HasSetting(CustomMenu.2.Enabled)</visible>
+					</control>
+
+					<control type="button" id="814">
+						<description>Item selection</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>90008</label>
+						<label2>[COLOR=selected]$INFO[Skin.String(CustomMenu.2.Label)][/COLOR]</label2>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick condition="Stringcompare(Skin.String(CustomMenu.2.Type),Video Playlist)">Skin.SetFile(CustomMenu.2.Path,.xsp,special://videoplaylists)</onclick>
+						<onclick condition="Stringcompare(Skin.String(CustomMenu.2.Type),Music Playlist)">Skin.SetFile(CustomMenu.2.Path,.xsp|.m3u,special://musicplaylists)</onclick>
+						<onclick condition="Stringcompare(Skin.String(CustomMenu.2.Type),Favourite)">RunScript(script.favourites,property=CustomMenu.2)</onclick>
+						<onclick condition="Stringcompare(Skin.String(CustomMenu.2.Type),Addon)">Skin.SetAddon(CustomMenu.2.Path,xbmc.addon.video,xbmc.addon.audio,xbmc.addon.image,xbmc.addon.executable)</onclick>
+						<onclick>Skin.Reset(CustomMenu.2.Label)</onclick>
+						<onclick condition="Stringcompare(Skin.String(CustomMenu.2.Type),Video Playlist) | Stringcompare(Skin.String(CustomMenu.2.Type),Music Playlist)">Skin.SetString(CustomMenu.2.Label)</onclick>
+						<onclick condition="Stringcompare(Skin.String(CustomMenu.2.Type),Addon)">Skin.SetString(CustomMenu.2.Label,$INFO[system.addontitle(Skin.String(CustomMenu.2.Path))])</onclick>
+						<visible>Skin.HasSetting(CustomMenu.2.Enabled)</visible>
+					</control>
+
+					<control type="button" id="815">
+						<description>Name</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>90011</label>
+						<label2>[COLOR=selected]$INFO[Skin.String(CustomMenu.2.Label)][/COLOR]</label2>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick>Skin.SetString(CustomMenu.2.Label)</onclick>
+						<visible>Skin.HasSetting(CustomMenu.2.Enabled) + [Stringcompare(Skin.String(CustomMenu.2.Type),Favourite) | Stringcompare(Skin.String(CustomMenu.2.Type),Addon)]</visible>
+					</control>
+
+					<control type="button" id="816">
+						<description>Submenu type</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>90023</label>
+						<label2>[COLOR=selected]$INFO[Skin.String(CustomMenu.2.SubType)][/COLOR]</label2>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick condition="Stringcompare(Skin.String(CustomMenu.2.Subtype),System) | IsEmpty(Skin.String(CustomMenu.2.Subtype))">Skin.SetString(CustomMenu.2.Subtype,None)</onclick>
+						<onclick condition="Stringcompare(Skin.String(CustomMenu.2.Subtype),System)">Skin.SetString(CustomMenu.2.Subtype,None)</onclick>
+						<onclick condition="Stringcompare(Skin.String(CustomMenu.2.Subtype),Music)">Skin.SetString(CustomMenu.2.Subtype,System)</onclick>
+						<onclick condition="Stringcompare(Skin.String(CustomMenu.2.Subtype),TV Shows)">Skin.SetString(CustomMenu.2.Subtype,Music)</onclick>
+						<onclick condition="Stringcompare(Skin.String(CustomMenu.2.Subtype),Movies)">Skin.SetString(CustomMenu.2.Subtype,TV Shows)</onclick>
+						<onclick condition="Stringcompare(Skin.String(CustomMenu.2.Subtype),Videos)">Skin.SetString(CustomMenu.2.Subtype,Movies)</onclick>
+						<onclick condition="Stringcompare(Skin.String(CustomMenu.2.Subtype),Pictures)">Skin.SetString(CustomMenu.2.Subtype,Videos)</onclick>
+						<onclick condition="Stringcompare(Skin.String(CustomMenu.2.Subtype),None)">Skin.SetString(CustomMenu.2.Subtype,Pictures)</onclick>
+						<onclick condition="Stringcompare(Skin.String(CustomMenu.2.Subtype),System)">Skin.SetString(CustomMenu.2.Subtype,None)</onclick>
+						<visible>Skin.HasSetting(CustomMenu.2.Enabled)</visible>
+					</control>
+
+					<control type="button" id="817">
+						<description>Addon type</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>90024</label>
+						<label2>[COLOR=selected]$INFO[Skin.String(CustomMenu.2.AddonType)][/COLOR]</label2>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick condition="Stringcompare(Skin.String(CustomMenu.2.AddonType),Programs) | IsEmpty(Skin.String(CustomMenu.2.AddonType))">Skin.SetString(CustomMenu.2.AddonType,None)</onclick>
+                		<onclick condition="Stringcompare(Skin.String(CustomMenu.2.AddonType),Music)">Skin.SetString(CustomMenu.2.AddonType,Programs)</onclick>
+                		<onclick condition="Stringcompare(Skin.String(CustomMenu.2.AddonType),Videos)">Skin.SetString(CustomMenu.2.AddonType,Music)</onclick>
+                		<onclick condition="Stringcompare(Skin.String(CustomMenu.2.AddonType),Pictures)">Skin.SetString(CustomMenu.2.AddonType,Videos)</onclick>
+                		<onclick condition="Stringcompare(Skin.String(CustomMenu.2.AddonType),None)">Skin.SetString(CustomMenu.2.AddonType,Pictures)</onclick>
+                		<onclick condition="Stringcompare(Skin.String(CustomMenu.2.AddonType),Programs)">Skin.SetString(CustomMenu.2.AddonType,None)</onclick>
+						<visible>Skin.HasSetting(CustomMenu.2.Enabled)</visible>
+					</control>
+
+					<control type="radiobutton" id="818">
+						<description>Custom item 3</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>90022</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<selected>Skin.HasSetting(CustomMenu.3.Enabled)</selected>
+						<onclick>Skin.ToggleSetting(CustomMenu.3.Enabled)</onclick>
+						<onclick>Skin.Reset(CustomMenu.3.Type)</onclick>
+						<onclick>Skin.Reset(CustomMenu.3.Path)</onclick>
+						<onclick>Skin.Reset(CustomMenu.3.Label)</onclick>
+						<onclick>Skin.Reset(CustomMenu.3.Icon)</onclick>
+						<onclick>Skin.Reset(CustomMenu.3.Subtype)</onclick>
+						<onclick>Skin.Reset(CustomMenu.3.AddonType)</onclick>
+					</control>
+					<control type="button" id="819">
+						<description>Item type</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>90007</label>
+						<label2>[COLOR=selected]$INFO[Skin.String(CustomMenu.3.Type)][/COLOR]</label2>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick condition="Stringcompare(Skin.String(CustomMenu.3.Type),Favourite) | IsEmpty(Skin.String(CustomMenu.3.Type))">Skin.SetString(CustomMenu.3.Type,Addon)</onclick>
+                		<onclick condition="Stringcompare(Skin.String(CustomMenu.3.Type),Music Playlist)">Skin.SetString(CustomMenu.3.Type,Favourite)</onclick>
+                		<onclick condition="Stringcompare(Skin.String(CustomMenu.3.Type),Video Playlist)">Skin.SetString(CustomMenu.3.Type,Music Playlist)</onclick>
+                		<onclick condition="Stringcompare(Skin.String(CustomMenu.3.Type),Addon)">Skin.SetString(CustomMenu.3.Type,Video Playlist)</onclick>
+                		<onclick condition="Stringcompare(Skin.String(CustomMenu.3.Type),Favourite)">Skin.SetString(CustomMenu.3.Type,Addon)</onclick>
+                		<onclick>Skin.Reset(CustomMenu.3.Path)</onclick>
+                		<onclick>Skin.Reset(CustomMenu.3.Label)</onclick>
+                		<onclick>Skin.Reset(CustomMenu.3.Icon)</onclick>
+                		<onclick>Skin.Reset(CustomMenu.3.Subtype)</onclick>
+                		<onclick>Skin.Reset(CustomMenu.3.AddonType)</onclick>
+						<visible>Skin.HasSetting(CustomMenu.3.Enabled)</visible>
+					</control>
+
+					<control type="button" id="820">
+						<description>Item selection</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>90008</label>
+						<label2>[COLOR=selected]$INFO[Skin.String(CustomMenu.3.Label)][/COLOR]</label2>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick condition="Stringcompare(Skin.String(CustomMenu.3.Type),Video Playlist)">Skin.SetFile(CustomMenu.3.Path,.xsp,special://videoplaylists)</onclick>
+						<onclick condition="Stringcompare(Skin.String(CustomMenu.3.Type),Music Playlist)">Skin.SetFile(CustomMenu.3.Path,.xsp|.m3u,special://musicplaylists)</onclick>
+						<onclick condition="Stringcompare(Skin.String(CustomMenu.3.Type),Favourite)">RunScript(script.favourites,property=CustomMenu.3)</onclick>
+						<onclick condition="Stringcompare(Skin.String(CustomMenu.3.Type),Addon)">Skin.SetAddon(CustomMenu.3.Path,xbmc.addon.video,xbmc.addon.audio,xbmc.addon.image,xbmc.addon.executable)</onclick>
+						<onclick>Skin.Reset(CustomMenu.3.Label)</onclick>
+						<onclick condition="Stringcompare(Skin.String(CustomMenu.3.Type),Video Playlist) | Stringcompare(Skin.String(CustomMenu.3.Type),Music Playlist)">Skin.SetString(CustomMenu.3.Label)</onclick>
+						<onclick condition="Stringcompare(Skin.String(CustomMenu.3.Type),Addon)">Skin.SetString(CustomMenu.3.Label,$INFO[system.addontitle(Skin.String(CustomMenu.3.Path))])</onclick>
+						<visible>Skin.HasSetting(CustomMenu.3.Enabled)</visible>
+					</control>
+
+					<control type="button" id="821">
+						<description>Name</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>90011</label>
+						<label2>[COLOR=selected]$INFO[Skin.String(CustomMenu.3.Label)][/COLOR]</label2>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick>Skin.SetString(CustomMenu.3.Label)</onclick>
+						<visible>Skin.HasSetting(CustomMenu.3.Enabled) + [Stringcompare(Skin.String(CustomMenu.3.Type),Favourite) | Stringcompare(Skin.String(CustomMenu.3.Type),Addon)]</visible>
+					</control>
+
+					<control type="button" id="822">
+						<description>Submenu type</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>90023</label>
+						<label2>[COLOR=selected]$INFO[Skin.String(CustomMenu.3.SubType)][/COLOR]</label2>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick condition="Stringcompare(Skin.String(CustomMenu.3.Subtype),System) | IsEmpty(Skin.String(CustomMenu.3.Subtype))">Skin.SetString(CustomMenu.3.Subtype,None)</onclick>
+						<onclick condition="Stringcompare(Skin.String(CustomMenu.3.Subtype),System)">Skin.SetString(CustomMenu.3.Subtype,None)</onclick>
+						<onclick condition="Stringcompare(Skin.String(CustomMenu.3.Subtype),Music)">Skin.SetString(CustomMenu.3.Subtype,System)</onclick>
+						<onclick condition="Stringcompare(Skin.String(CustomMenu.3.Subtype),TV Shows)">Skin.SetString(CustomMenu.3.Subtype,Music)</onclick>
+						<onclick condition="Stringcompare(Skin.String(CustomMenu.3.Subtype),Movies)">Skin.SetString(CustomMenu.3.Subtype,TV Shows)</onclick>
+						<onclick condition="Stringcompare(Skin.String(CustomMenu.3.Subtype),Videos)">Skin.SetString(CustomMenu.3.Subtype,Movies)</onclick>
+						<onclick condition="Stringcompare(Skin.String(CustomMenu.3.Subtype),Pictures)">Skin.SetString(CustomMenu.3.Subtype,Videos)</onclick>
+						<onclick condition="Stringcompare(Skin.String(CustomMenu.3.Subtype),None)">Skin.SetString(CustomMenu.3.Subtype,Pictures)</onclick>
+						<onclick condition="Stringcompare(Skin.String(CustomMenu.3.Subtype),System)">Skin.SetString(CustomMenu.3.Subtype,None)</onclick>
+						<visible>Skin.HasSetting(CustomMenu.3.Enabled)</visible>
+					</control>
+
+					<control type="button" id="823">
+						<description>Addon type</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>90024</label>
+						<label2>[COLOR=selected]$INFO[Skin.String(CustomMenu.3.AddonType)][/COLOR]</label2>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick condition="Stringcompare(Skin.String(CustomMenu.3.AddonType),Programs) | IsEmpty(Skin.String(CustomMenu.3.AddonType))">Skin.SetString(CustomMenu.3.AddonType,None)</onclick>
+                		<onclick condition="Stringcompare(Skin.String(CustomMenu.3.AddonType),Music)">Skin.SetString(CustomMenu.3.AddonType,Programs)</onclick>
+                		<onclick condition="Stringcompare(Skin.String(CustomMenu.3.AddonType),Videos)">Skin.SetString(CustomMenu.3.AddonType,Music)</onclick>
+                		<onclick condition="Stringcompare(Skin.String(CustomMenu.3.AddonType),Pictures)">Skin.SetString(CustomMenu.3.AddonType,Videos)</onclick>
+                		<onclick condition="Stringcompare(Skin.String(CustomMenu.3.AddonType),None)">Skin.SetString(CustomMenu.3.AddonType,Pictures)</onclick>
+                		<onclick condition="Stringcompare(Skin.String(CustomMenu.3.AddonType),Programs)">Skin.SetString(CustomMenu.3.AddonType,None)</onclick>
+						<visible>Skin.HasSetting(CustomMenu.3.Enabled)</visible>
+					</control>
+
+				</control>
+
+				<control type="scrollbar" id="850">
+					<posx>1060</posx>
+					<posy>60</posy>
+					<width>25</width>
+					<height>530</height>
+					<texturesliderbackground border="0,14,0,14">ScrollBarV.png</texturesliderbackground>
+					<texturesliderbar border="0,14,0,14">ScrollBarV_bar.png</texturesliderbar>
+					<texturesliderbarfocus border="0,14,0,14">ScrollBarV_bar_focus.png</texturesliderbarfocus>
+					<textureslidernib>ScrollBarNib.png</textureslidernib>
+					<textureslidernibfocus>ScrollBarNib.png</textureslidernibfocus>
+					<onleft>9999</onleft>
+					<onright>9000</onright>
+					<showonepage>false</showonepage>
+					<orientation>vertical</orientation>
+					<visible>Container(9000).Hasfocus(5)</visible>
+				</control>
+
+				<control type="grouplist" id="9999">
+					<visible>Container(9000).Hasfocus(6)</visible>
+					<posx>290</posx>
+					<posy>60</posy>
+					<width>750</width>
+					<height>530</height>
+					<itemgap>-1</itemgap>
+					<pagecontrol>1012</pagecontrol>
+					<onleft>9000</onleft>
+					<onright>1012</onright>
+					<onup>9999</onup>
+					<ondown>9999</ondown>
+					<control type="label" id="851">
+						<description>Title</description>
+						<width>750</width>
+						<height>45</height>
+						<font>font13_title</font>
+						<label>90018</label>
+						<textcolor>blue</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<align>left</align>
+						<aligny>center</aligny>
+					</control>
+					<control type="label" id="852">
+						<description>Pictures submenu</description>
+						<width>750</width>
+						<height>45</height>
+						<font>font13_title</font>
+						<label>1</label>
+						<textcolor>blue</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<align>left</align>
+						<aligny>center</aligny>
+					</control>
+					<control type="radiobutton" id="853">
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>Picture Addons</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<selected>Skin.HasSetting(SubmenuPictureAddons.Enabled)</selected>
+						<onclick>Skin.ToggleSetting(SubmenuPictureAddons.Enabled)</onclick>
+					</control>
+
+					<control type="radiobutton" id="900">
+						<description>Enable item 1</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>90020</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<selected>Skin.HasSetting(SubmenuPictureCustom.1.Enabled)</selected>
+						<onclick>Skin.ToggleSetting(SubmenuPictureCustom.1.Enabled)</onclick>
+						<onclick>Skin.Reset(SubmenuPictureCustom.1.Type)</onclick>
+						<onclick>Skin.Reset(SubmenuPictureCustom.1.Path)</onclick>
+						<onclick>Skin.Reset(SubmenuPictureCustom.1.Label)</onclick>
+						<onclick>Skin.Reset(SubmenuPictureCustom.1.Icon)</onclick>
+					</control>
+					<control type="button" id="901">
+						<description>Item type</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>90007</label>
+						<label2>[COLOR=selected]$INFO[Skin.String(SubmenuPictureCustom.1.Type)][/COLOR]</label2>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick condition="Stringcompare(Skin.String(SubmenuPictureCustom.1.Type),Favourite) | IsEmpty(Skin.String(SubmenuPictureCustom.1.Type))">Skin.SetString(SubmenuPictureCustom.1.Type,Addon)</onclick>
+                		<onclick condition="Stringcompare(Skin.String(SubmenuPictureCustom.1.Type),Music Playlist)">Skin.SetString(SubmenuPictureCustom.1.Type,Favourite)</onclick>
+                		<onclick condition="Stringcompare(Skin.String(SubmenuPictureCustom.1.Type),Video Playlist)">Skin.SetString(SubmenuPictureCustom.1.Type,Music Playlist)</onclick>
+                		<onclick condition="Stringcompare(Skin.String(SubmenuPictureCustom.1.Type),Addon)">Skin.SetString(SubmenuPictureCustom.1.Type,Video Playlist)</onclick>
+                		<onclick condition="Stringcompare(Skin.String(SubmenuPictureCustom.1.Type),Favourite)">Skin.SetString(SubmenuPictureCustom.1.Type,Addon)</onclick>
+                		<onclick>Skin.Reset(SubmenuPictureCustom.1.Path)</onclick>
+                		<onclick>Skin.Reset(SubmenuPictureCustom.1.Label)</onclick>
+                		<onclick>Skin.Reset(SubmenuPictureCustom.1.Icon)</onclick>
+						<visible>Skin.HasSetting(SubmenuPictureCustom.1.Enabled)</visible>
+					</control>
+					<control type="button" id="902">
+						<description>Item selection</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>90008</label>
+						<label2>[COLOR=selected]$INFO[Skin.String(SubmenuPictureCustom.1.Label)][/COLOR]</label2>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick condition="Stringcompare(Skin.String(SubmenuPictureCustom.1.Type),Video Playlist)">Skin.SetFile(SubmenuPictureCustom.1.Path,.xsp,special://videoplaylists)</onclick>
+						<onclick condition="Stringcompare(Skin.String(SubmenuPictureCustom.1.Type),Music Playlist)">Skin.SetFile(SubmenuPictureCustom.1.Path,.xsp|.m3u,special://musicplaylists)</onclick>
+						<onclick condition="Stringcompare(Skin.String(SubmenuPictureCustom.1.Type),Favourite)">RunScript(script.favourites,property=SubmenuPictureCustom.1)</onclick>
+						<onclick condition="Stringcompare(Skin.String(SubmenuPictureCustom.1.Type),Addon)">Skin.SetAddon(SubmenuPictureCustom.1.Path,xbmc.addon.video,xbmc.addon.audio,xbmc.addon.image,xbmc.addon.executable)</onclick>
+						<onclick>Skin.Reset(SubmenuPictureCustom.1.Label)</onclick>
+						<onclick condition="Stringcompare(Skin.String(SubmenuPictureCustom.1.Type),Video Playlist) | Stringcompare(Skin.String(SubmenuPictureCustom.1.Type),Music Playlist)">Skin.SetString(SubmenuPictureCustom.1.Label)</onclick>
+						<onclick condition="Stringcompare(Skin.String(SubmenuPictureCustom.1.Type),Addon)">Skin.SetString(SubmenuPictureCustom.1.Label,$INFO[system.addontitle(Skin.String(SubmenuPictureCustom.1.Path))])</onclick>
+						<visible>Skin.HasSetting(SubmenuPictureCustom.1.Enabled)</visible>
+					</control>
+
+					<control type="button" id="903">
+						<description>Label</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>90011</label>
+						<label2>[COLOR=selected]$INFO[Skin.String(SubmenuPictureCustom.1.Label)][/COLOR]</label2>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick>Skin.SetString(SubmenuPictureCustom.1.Label)</onclick>
+						<visible>Skin.HasSetting(SubmenuPictureCustom.1.Enabled) + [Stringcompare(Skin.String(SubmenuPictureCustom.1.Type),Favourite) | Stringcompare(Skin.String(SubmenuPictureCustom.1.Type),Addon)]</visible>
+					</control>
+
+					<control type="radiobutton" id="904">
+						<description>Enable item 2</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>90021</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<selected>Skin.HasSetting(SubmenuPictureCustom.2.Enabled)</selected>
+						<onclick>Skin.ToggleSetting(SubmenuPictureCustom.2.Enabled)</onclick>
+						<onclick>Skin.Reset(SubmenuPictureCustom.2.Type)</onclick>
+						<onclick>Skin.Reset(SubmenuPictureCustom.2.Path)</onclick>
+						<onclick>Skin.Reset(SubmenuPictureCustom.2.Label)</onclick>
+						<onclick>Skin.Reset(SubmenuPictureCustom.2.Icon)</onclick>
+					</control>
+					<control type="button" id="905">
+						<description>Item type</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>90007</label>
+						<label2>[COLOR=selected]$INFO[Skin.String(SubmenuPictureCustom.2.Type)][/COLOR]</label2>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick condition="Stringcompare(Skin.String(SubmenuPictureCustom.2.Type),Favourite) | IsEmpty(Skin.String(SubmenuPictureCustom.2.Type))">Skin.SetString(SubmenuPictureCustom.2.Type,Addon)</onclick>
+                		<onclick condition="Stringcompare(Skin.String(SubmenuPictureCustom.2.Type),Music Playlist)">Skin.SetString(SubmenuPictureCustom.2.Type,Favourite)</onclick>
+                		<onclick condition="Stringcompare(Skin.String(SubmenuPictureCustom.2.Type),Video Playlist)">Skin.SetString(SubmenuPictureCustom.2.Type,Music Playlist)</onclick>
+                		<onclick condition="Stringcompare(Skin.String(SubmenuPictureCustom.2.Type),Addon)">Skin.SetString(SubmenuPictureCustom.2.Type,Video Playlist)</onclick>
+                		<onclick condition="Stringcompare(Skin.String(SubmenuPictureCustom.2.Type),Favourite)">Skin.SetString(SubmenuPictureCustom.2.Type,Addon)</onclick>
+                		<onclick>Skin.Reset(SubmenuPictureCustom.2.Path)</onclick>
+                		<onclick>Skin.Reset(SubmenuPictureCustom.2.Label)</onclick>
+                		<onclick>Skin.Reset(SubmenuPictureCustom.2.Icon)</onclick>
+						<visible>Skin.HasSetting(SubmenuPictureCustom.2.Enabled)</visible>
+					</control>
+					<control type="button" id="906">
+						<description>Item selection</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>90008</label>
+						<label2>[COLOR=selected]$INFO[Skin.String(SubmenuPictureCustom.2.Label)][/COLOR]</label2>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick condition="Stringcompare(Skin.String(SubmenuPictureCustom.2.Type),Video Playlist)">Skin.SetFile(SubmenuPictureCustom.2.Path,.xsp,special://videoplaylists)</onclick>
+						<onclick condition="Stringcompare(Skin.String(SubmenuPictureCustom.2.Type),Music Playlist)">Skin.SetFile(SubmenuPictureCustom.2.Path,.xsp|.m3u,special://musicplaylists)</onclick>
+						<onclick condition="Stringcompare(Skin.String(SubmenuPictureCustom.2.Type),Favourite)">RunScript(script.favourites,property=SubmenuPictureCustom.2)</onclick>
+						<onclick condition="Stringcompare(Skin.String(SubmenuPictureCustom.2.Type),Addon)">Skin.SetAddon(SubmenuPictureCustom.2.Path,xbmc.addon.video,xbmc.addon.audio,xbmc.addon.image,xbmc.addon.executable)</onclick>
+						<onclick>Skin.Reset(SubmenuPictureCustom.2.Label)</onclick>
+						<onclick condition="Stringcompare(Skin.String(SubmenuPictureCustom.2.Type),Video Playlist) | Stringcompare(Skin.String(SubmenuPictureCustom.2.Type),Music Playlist)">Skin.SetString(SubmenuPictureCustom.2.Label)</onclick>
+						<onclick condition="Stringcompare(Skin.String(SubmenuPictureCustom.2.Type),Addon)">Skin.SetString(SubmenuPictureCustom.2.Label,$INFO[system.addontitle(Skin.String(SubmenuPictureCustom.2.Path))])</onclick>
+						<visible>Skin.HasSetting(SubmenuPictureCustom.2.Enabled)</visible>
+					</control>
+
+					<control type="button" id="907">
+						<description>Label</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>90011</label>
+						<label2>[COLOR=selected]$INFO[Skin.String(SubmenuPictureCustom.2.Label)][/COLOR]</label2>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick>Skin.SetString(SubmenuPictureCustom.2.Label)</onclick>
+						<visible>Skin.HasSetting(SubmenuPictureCustom.2.Enabled) + [Stringcompare(Skin.String(SubmenuPictureCustom.2.Type),Favourite) | Stringcompare(Skin.String(SubmenuPictureCustom.2.Type),Addon)]</visible>
+					</control>
+
+					<control type="radiobutton" id="908">
+						<description>Custom item 3</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>90022</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<selected>Skin.HasSetting(SubmenuPictureCustom.3.Enabled)</selected>
+						<onclick>Skin.ToggleSetting(SubmenuPictureCustom.3.Enabled)</onclick>
+						<onclick>Skin.Reset(SubmenuPictureCustom.3.Type)</onclick>
+						<onclick>Skin.Reset(SubmenuPictureCustom.3.Path)</onclick>
+						<onclick>Skin.Reset(SubmenuPictureCustom.3.Label)</onclick>
+						<onclick>Skin.Reset(SubmenuPictureCustom.3.Icon)</onclick>
+					</control>
+					<control type="button" id="909">
+						<description>Item type</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>90007</label>
+						<label2>[COLOR=selected]$INFO[Skin.String(SubmenuPictureCustom.3.Type)][/COLOR]</label2>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick condition="Stringcompare(Skin.String(SubmenuPictureCustom.3.Type),Favourite) | IsEmpty(Skin.String(SubmenuPictureCustom.3.Type))">Skin.SetString(SubmenuPictureCustom.3.Type,Addon)</onclick>
+                		<onclick condition="Stringcompare(Skin.String(SubmenuPictureCustom.3.Type),Music Playlist)">Skin.SetString(SubmenuPictureCustom.3.Type,Favourite)</onclick>
+                		<onclick condition="Stringcompare(Skin.String(SubmenuPictureCustom.3.Type),Video Playlist)">Skin.SetString(SubmenuPictureCustom.3.Type,Music Playlist)</onclick>
+                		<onclick condition="Stringcompare(Skin.String(SubmenuPictureCustom.3.Type),Addon)">Skin.SetString(SubmenuPictureCustom.3.Type,Video Playlist)</onclick>
+                		<onclick condition="Stringcompare(Skin.String(SubmenuPictureCustom.3.Type),Favourite)">Skin.SetString(SubmenuPictureCustom.3.Type,Addon)</onclick>
+                		<onclick>Skin.Reset(SubmenuPictureCustom.3.Path)</onclick>
+                		<onclick>Skin.Reset(SubmenuPictureCustom.3.Label)</onclick>
+                		<onclick>Skin.Reset(SubmenuPictureCustom.3.Icon)</onclick>
+						<visible>Skin.HasSetting(SubmenuPictureCustom.3.Enabled)</visible>
+					</control>
+					<control type="button" id="910">
+						<description>Item selection</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>90008</label>
+						<label2>[COLOR=selected]$INFO[Skin.String(SubmenuPictureCustom.3.Label)][/COLOR]</label2>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick condition="Stringcompare(Skin.String(SubmenuPictureCustom.3.Type),Video Playlist)">Skin.SetFile(SubmenuPictureCustom.3.Path,.xsp,special://videoplaylists)</onclick>
+						<onclick condition="Stringcompare(Skin.String(SubmenuPictureCustom.3.Type),Music Playlist)">Skin.SetFile(SubmenuPictureCustom.3.Path,.xsp|.m3u,special://musicplaylists)</onclick>
+						<onclick condition="Stringcompare(Skin.String(SubmenuPictureCustom.3.Type),Favourite)">RunScript(script.favourites,property=SubmenuPictureCustom.3)</onclick>
+						<onclick condition="Stringcompare(Skin.String(SubmenuPictureCustom.3.Type),Addon)">Skin.SetAddon(SubmenuPictureCustom.3.Path,xbmc.addon.video,xbmc.addon.audio,xbmc.addon.image,xbmc.addon.executable)</onclick>
+						<onclick>Skin.Reset(SubmenuPictureCustom.3.Label)</onclick>
+						<onclick condition="Stringcompare(Skin.String(SubmenuPictureCustom.3.Type),Video Playlist) | Stringcompare(Skin.String(SubmenuPictureCustom.3.Type),Music Playlist)">Skin.SetString(SubmenuPictureCustom.3.Label)</onclick>
+						<onclick condition="Stringcompare(Skin.String(SubmenuPictureCustom.3.Type),Addon)">Skin.SetString(SubmenuPictureCustom.3.Label,$INFO[system.addontitle(Skin.String(SubmenuPictureCustom.3.Path))])</onclick>
+						<visible>Skin.HasSetting(SubmenuPictureCustom.3.Enabled)</visible>
+					</control>
+
+					<control type="button" id="911">
+						<description>Label</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>90011</label>
+						<label2>[COLOR=selected]$INFO[Skin.String(SubmenuPictureCustom.3.Label)][/COLOR]</label2>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick>Skin.SetString(SubmenuPictureCustom.3.Label)</onclick>
+						<visible>Skin.HasSetting(SubmenuPictureCustom.3.Enabled) + [Stringcompare(Skin.String(SubmenuPictureCustom.3.Type),Favourite) | Stringcompare(Skin.String(SubmenuPictureCustom.3.Type),Addon)]</visible>
+					</control>
+
+					<control type="label" id="912">
+						<description>Videos submenu</description>
+						<width>750</width>
+						<height>45</height>
+						<font>font13_title</font>
+						<label>3</label>
+						<textcolor>blue</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<align>left</align>
+						<aligny>center</aligny>
+					</control>
+
+					<control type="radiobutton" id="913">
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>342</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<selected>Skin.HasSetting(SubmenuVideoMovies.Enabled)</selected>
+						<onclick>Skin.ToggleSetting(SubmenuVideoMovies.Enabled)</onclick>
+					</control>
+
+					<control type="radiobutton" id="914">
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>20343</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<selected>Skin.HasSetting(SubmenuVideoTVShows.Enabled)</selected>
+						<onclick>Skin.ToggleSetting(SubmenuVideoTVShows.Enabled)</onclick>
+					</control>
+
+					<control type="radiobutton" id="915">
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>20389</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<selected>Skin.HasSetting(SubmenuVideoMusicVideos.Enabled)</selected>
+						<onclick>Skin.ToggleSetting(SubmenuVideoMusicVideos.Enabled)</onclick>
+					</control>
+
+					<control type="radiobutton" id="916">
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>744</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<selected>Skin.HasSetting(SubmenuVideoFiles.Enabled)</selected>
+						<onclick>Skin.ToggleSetting(SubmenuVideoFiles.Enabled)</onclick>
+					</control>
+
+					<control type="radiobutton" id="917">
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>14022</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<selected>Skin.HasSetting(SubmenuVideoLibrary.Enabled)</selected>
+						<onclick>Skin.ToggleSetting(SubmenuVideoLibrary.Enabled)</onclick>
+					</control>
+
+					<control type="radiobutton" id="918">
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>1037</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<selected>Skin.HasSetting(SubmenuVideoAddons.Enabled)</selected>
+						<onclick>Skin.ToggleSetting(SubmenuVideoAddons.Enabled)</onclick>
+					</control>
+
+					<control type="radiobutton" id="919">
+						<description>Enable item 1</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>90020</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<selected>Skin.HasSetting(SubmenuVideoCustom.1.Enabled)</selected>
+						<onclick>Skin.ToggleSetting(SubmenuVideoCustom.1.Enabled)</onclick>
+						<onclick>Skin.Reset(SubmenuVideoCustom.1.Type)</onclick>
+						<onclick>Skin.Reset(SubmenuVideoCustom.1.Path)</onclick>
+						<onclick>Skin.Reset(SubmenuVideoCustom.1.Label)</onclick>
+						<onclick>Skin.Reset(SubmenuVideoCustom.1.Icon)</onclick>
+					</control>
+					<control type="button" id="920">
+						<description>Item type</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>90007</label>
+						<label2>[COLOR=selected]$INFO[Skin.String(SubmenuVideoCustom.1.Type)][/COLOR]</label2>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick condition="Stringcompare(Skin.String(SubmenuVideoCustom.1.Type),Favourite) | IsEmpty(Skin.String(SubmenuVideoCustom.1.Type))">Skin.SetString(SubmenuVideoCustom.1.Type,Addon)</onclick>
+                		<onclick condition="Stringcompare(Skin.String(SubmenuVideoCustom.1.Type),Music Playlist)">Skin.SetString(SubmenuVideoCustom.1.Type,Favourite)</onclick>
+                		<onclick condition="Stringcompare(Skin.String(SubmenuVideoCustom.1.Type),Video Playlist)">Skin.SetString(SubmenuVideoCustom.1.Type,Music Playlist)</onclick>
+                		<onclick condition="Stringcompare(Skin.String(SubmenuVideoCustom.1.Type),Addon)">Skin.SetString(SubmenuVideoCustom.1.Type,Video Playlist)</onclick>
+                		<onclick condition="Stringcompare(Skin.String(SubmenuVideoCustom.1.Type),Favourite)">Skin.SetString(SubmenuVideoCustom.1.Type,Addon)</onclick>
+                		<onclick>Skin.Reset(SubmenuVideoCustom.1.Path)</onclick>
+                		<onclick>Skin.Reset(SubmenuVideoCustom.1.Label)</onclick>
+                		<onclick>Skin.Reset(SubmenuVideoCustom.1.Icon)</onclick>
+						<visible>Skin.HasSetting(SubmenuVideoCustom.1.Enabled)</visible>
+					</control>
+					<control type="button" id="921">
+						<description>Item selection</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>90008</label>
+						<label2>[COLOR=selected]$INFO[Skin.String(SubmenuVideoCustom.1.Label)][/COLOR]</label2>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick condition="Stringcompare(Skin.String(SubmenuVideoCustom.1.Type),Video Playlist)">Skin.SetFile(SubmenuVideoCustom.1.Path,.xsp,special://videoplaylists)</onclick>
+						<onclick condition="Stringcompare(Skin.String(SubmenuVideoCustom.1.Type),Music Playlist)">Skin.SetFile(SubmenuVideoCustom.1.Path,.xsp|.m3u,special://musicplaylists)</onclick>
+						<onclick condition="Stringcompare(Skin.String(SubmenuVideoCustom.1.Type),Favourite)">RunScript(script.favourites,property=SubmenuVideoCustom.1)</onclick>
+						<onclick condition="Stringcompare(Skin.String(SubmenuVideoCustom.1.Type),Addon)">Skin.SetAddon(SubmenuVideoCustom.1.Path,xbmc.addon.video,xbmc.addon.audio,xbmc.addon.image,xbmc.addon.executable)</onclick>
+						<onclick>Skin.Reset(SubmenuVideoCustom.1.Label)</onclick>
+						<onclick condition="Stringcompare(Skin.String(SubmenuVideoCustom.1.Type),Video Playlist) | Stringcompare(Skin.String(SubmenuVideoCustom.1.Type),Music Playlist)">Skin.SetString(SubmenuVideoCustom.1.Label)</onclick>
+						<onclick condition="Stringcompare(Skin.String(SubmenuVideoCustom.1.Type),Addon)">Skin.SetString(SubmenuVideoCustom.1.Label,$INFO[system.addontitle(Skin.String(SubmenuVideoCustom.1.Path))])</onclick>
+						<visible>Skin.HasSetting(SubmenuVideoCustom.1.Enabled)</visible>
+					</control>
+
+					<control type="button" id="922">
+						<description>Label</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>90011</label>
+						<label2>[COLOR=selected]$INFO[Skin.String(SubmenuVideoCustom.1.Label)][/COLOR]</label2>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick>Skin.SetString(SubmenuVideoCustom.1.Label)</onclick>
+						<visible>Skin.HasSetting(SubmenuVideoCustom.1.Enabled) + [Stringcompare(Skin.String(SubmenuVideoCustom.1.Type),Favourite) | Stringcompare(Skin.String(SubmenuVideoCustom.1.Type),Addon)]</visible>
+					</control>
+
+					<control type="radiobutton" id="923">
+						<description>Enable item 2</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>90021</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<selected>Skin.HasSetting(SubmenuVideoCustom.2.Enabled)</selected>
+						<onclick>Skin.ToggleSetting(SubmenuVideoCustom.2.Enabled)</onclick>
+						<onclick>Skin.Reset(SubmenuVideoCustom.2.Type)</onclick>
+						<onclick>Skin.Reset(SubmenuVideoCustom.2.Path)</onclick>
+						<onclick>Skin.Reset(SubmenuVideoCustom.2.Label)</onclick>
+						<onclick>Skin.Reset(SubmenuVideoCustom.2.Icon)</onclick>
+					</control>
+					<control type="button" id="924">
+						<description>Item type</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>90007</label>
+						<label2>[COLOR=selected]$INFO[Skin.String(SubmenuVideoCustom.2.Type)][/COLOR]</label2>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick condition="Stringcompare(Skin.String(SubmenuVideoCustom.2.Type),Favourite) | IsEmpty(Skin.String(SubmenuVideoCustom.2.Type))">Skin.SetString(SubmenuVideoCustom.2.Type,Addon)</onclick>
+                		<onclick condition="Stringcompare(Skin.String(SubmenuVideoCustom.2.Type),Music Playlist)">Skin.SetString(SubmenuVideoCustom.2.Type,Favourite)</onclick>
+                		<onclick condition="Stringcompare(Skin.String(SubmenuVideoCustom.2.Type),Video Playlist)">Skin.SetString(SubmenuVideoCustom.2.Type,Music Playlist)</onclick>
+                		<onclick condition="Stringcompare(Skin.String(SubmenuVideoCustom.2.Type),Addon)">Skin.SetString(SubmenuVideoCustom.2.Type,Video Playlist)</onclick>
+                		<onclick condition="Stringcompare(Skin.String(SubmenuVideoCustom.2.Type),Favourite)">Skin.SetString(SubmenuVideoCustom.2.Type,Addon)</onclick>
+                		<onclick>Skin.Reset(SubmenuVideoCustom.2.Path)</onclick>
+                		<onclick>Skin.Reset(SubmenuVideoCustom.2.Label)</onclick>
+                		<onclick>Skin.Reset(SubmenuVideoCustom.2.Icon)</onclick>
+						<visible>Skin.HasSetting(SubmenuVideoCustom.2.Enabled)</visible>
+					</control>
+					<control type="button" id="925">
+						<description>Item selection</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>90008</label>
+						<label2>[COLOR=selected]$INFO[Skin.String(SubmenuVideoCustom.2.Label)][/COLOR]</label2>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick condition="Stringcompare(Skin.String(SubmenuVideoCustom.2.Type),Video Playlist)">Skin.SetFile(SubmenuVideoCustom.2.Path,.xsp,special://videoplaylists)</onclick>
+						<onclick condition="Stringcompare(Skin.String(SubmenuVideoCustom.2.Type),Music Playlist)">Skin.SetFile(SubmenuVideoCustom.2.Path,.xsp|.m3u,special://musicplaylists)</onclick>
+						<onclick condition="Stringcompare(Skin.String(SubmenuVideoCustom.2.Type),Favourite)">RunScript(script.favourites,property=SubmenuVideoCustom.2)</onclick>
+						<onclick condition="Stringcompare(Skin.String(SubmenuVideoCustom.2.Type),Addon)">Skin.SetAddon(SubmenuVideoCustom.2.Path,xbmc.addon.video,xbmc.addon.audio,xbmc.addon.image,xbmc.addon.executable)</onclick>
+						<onclick>Skin.Reset(SubmenuVideoCustom.2.Label)</onclick>
+						<onclick condition="Stringcompare(Skin.String(SubmenuVideoCustom.2.Type),Video Playlist) | Stringcompare(Skin.String(SubmenuVideoCustom.2.Type),Music Playlist)">Skin.SetString(SubmenuVideoCustom.2.Label)</onclick>
+						<onclick condition="Stringcompare(Skin.String(SubmenuVideoCustom.2.Type),Addon)">Skin.SetString(SubmenuVideoCustom.2.Label,$INFO[system.addontitle(Skin.String(SubmenuVideoCustom.2.Path))])</onclick>
+						<visible>Skin.HasSetting(SubmenuVideoCustom.2.Enabled)</visible>
+					</control>
+
+					<control type="button" id="926">
+						<description>Label</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>90011</label>
+						<label2>[COLOR=selected]$INFO[Skin.String(SubmenuVideoCustom.2.Label)][/COLOR]</label2>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick>Skin.SetString(SubmenuVideoCustom.2.Label)</onclick>
+						<visible>Skin.HasSetting(SubmenuVideoCustom.2.Enabled) + [Stringcompare(Skin.String(SubmenuVideoCustom.2.Type),Favourite) | Stringcompare(Skin.String(SubmenuVideoCustom.2.Type),Addon)]</visible>
+					</control>
+
+					<control type="radiobutton" id="927">
+						<description>Custom item 3</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>90022</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<selected>Skin.HasSetting(SubmenuVideoCustom.3.Enabled)</selected>
+						<onclick>Skin.ToggleSetting(SubmenuVideoCustom.3.Enabled)</onclick>
+						<onclick>Skin.Reset(SubmenuVideoCustom.3.Type)</onclick>
+						<onclick>Skin.Reset(SubmenuVideoCustom.3.Path)</onclick>
+						<onclick>Skin.Reset(SubmenuVideoCustom.3.Label)</onclick>
+						<onclick>Skin.Reset(SubmenuVideoCustom.3.Icon)</onclick>
+					</control>
+					<control type="button" id="928">
+						<description>Item type</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>90007</label>
+						<label2>[COLOR=selected]$INFO[Skin.String(SubmenuVideoCustom.3.Type)][/COLOR]</label2>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick condition="Stringcompare(Skin.String(SubmenuVideoCustom.3.Type),Favourite) | IsEmpty(Skin.String(SubmenuVideoCustom.3.Type))">Skin.SetString(SubmenuVideoCustom.3.Type,Addon)</onclick>
+                		<onclick condition="Stringcompare(Skin.String(SubmenuVideoCustom.3.Type),Music Playlist)">Skin.SetString(SubmenuVideoCustom.3.Type,Favourite)</onclick>
+                		<onclick condition="Stringcompare(Skin.String(SubmenuVideoCustom.3.Type),Video Playlist)">Skin.SetString(SubmenuVideoCustom.3.Type,Music Playlist)</onclick>
+                		<onclick condition="Stringcompare(Skin.String(SubmenuVideoCustom.3.Type),Addon)">Skin.SetString(SubmenuVideoCustom.3.Type,Video Playlist)</onclick>
+                		<onclick condition="Stringcompare(Skin.String(SubmenuVideoCustom.3.Type),Favourite)">Skin.SetString(SubmenuVideoCustom.3.Type,Addon)</onclick>
+                		<onclick>Skin.Reset(SubmenuVideoCustom.3.Path)</onclick>
+                		<onclick>Skin.Reset(SubmenuVideoCustom.3.Label)</onclick>
+                		<onclick>Skin.Reset(SubmenuVideoCustom.3.Icon)</onclick>
+						<visible>Skin.HasSetting(SubmenuVideoCustom.3.Enabled)</visible>
+					</control>
+					<control type="button" id="929">
+						<description>Item selection</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>90008</label>
+						<label2>[COLOR=selected]$INFO[Skin.String(SubmenuVideoCustom.3.Label)][/COLOR]</label2>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick condition="Stringcompare(Skin.String(SubmenuVideoCustom.3.Type),Video Playlist)">Skin.SetFile(SubmenuVideoCustom.3.Path,.xsp,special://videoplaylists)</onclick>
+						<onclick condition="Stringcompare(Skin.String(SubmenuVideoCustom.3.Type),Music Playlist)">Skin.SetFile(SubmenuVideoCustom.3.Path,.xsp|.m3u,special://musicplaylists)</onclick>
+						<onclick condition="Stringcompare(Skin.String(SubmenuVideoCustom.3.Type),Favourite)">RunScript(script.favourites,property=SubmenuVideoCustom.3)</onclick>
+						<onclick condition="Stringcompare(Skin.String(SubmenuVideoCustom.3.Type),Addon)">Skin.SetAddon(SubmenuVideoCustom.3.Path,xbmc.addon.video,xbmc.addon.audio,xbmc.addon.image,xbmc.addon.executable)</onclick>
+						<onclick>Skin.Reset(SubmenuVideoCustom.3.Label)</onclick>
+						<onclick condition="Stringcompare(Skin.String(SubmenuVideoCustom.3.Type),Video Playlist) | Stringcompare(Skin.String(SubmenuVideoCustom.3.Type),Music Playlist)">Skin.SetString(SubmenuVideoCustom.3.Label)</onclick>
+						<onclick condition="Stringcompare(Skin.String(SubmenuVideoCustom.3.Type),Addon)">Skin.SetString(SubmenuVideoCustom.3.Label,$INFO[system.addontitle(Skin.String(SubmenuVideoCustom.3.Path))])</onclick>
+						<visible>Skin.HasSetting(SubmenuVideoCustom.3.Enabled)</visible>
+					</control>
+
+					<control type="button" id="930">
+						<description>Label</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>90011</label>
+						<label2>[COLOR=selected]$INFO[Skin.String(SubmenuVideoCustom.3.Label)][/COLOR]</label2>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick>Skin.SetString(SubmenuVideoCustom.3.Label)</onclick>
+						<visible>Skin.HasSetting(SubmenuVideoCustom.3.Enabled) + [Stringcompare(Skin.String(SubmenuVideoCustom.3.Type),Favourite) | Stringcompare(Skin.String(SubmenuVideoCustom.3.Type),Addon)]</visible>
+					</control>
+
+					<control type="label" id="931">
+						<description>Movie submenu</description>
+						<width>750</width>
+						<height>45</height>
+						<font>font13_title</font>
+						<label>20342</label>
+						<textcolor>blue</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<align>left</align>
+						<aligny>center</aligny>
+					</control>
+
+					<control type="radiobutton" id="932">
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>20386</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<selected>Skin.HasSetting(SubmenuMovieRecent.Enabled)</selected>
+						<onclick>Skin.ToggleSetting(SubmenuMovieRecent.Enabled)</onclick>
+					</control>
+
+					<control type="radiobutton" id="933">
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>20434</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<selected>Skin.HasSetting(SubmenuMovieSets.Enabled)</selected>
+						<onclick>Skin.ToggleSetting(SubmenuMovieSets.Enabled)</onclick>
+					</control>
+
+					<control type="radiobutton" id="934">
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>369</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<selected>Skin.HasSetting(SubmenuMovieTitles.Enabled)</selected>
+						<onclick>Skin.ToggleSetting(SubmenuMovieTitles.Enabled)</onclick>
+					</control>
+
+					<control type="radiobutton" id="935">
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>135</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<selected>Skin.HasSetting(SubmenuMovieGenres.Enabled)</selected>
+						<onclick>Skin.ToggleSetting(SubmenuMovieGenres.Enabled)</onclick>
+					</control>
+
+					<control type="radiobutton" id="936">
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>652</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<selected>Skin.HasSetting(SubmenuMovieYears.Enabled)</selected>
+						<onclick>Skin.ToggleSetting(SubmenuMovieYears.Enabled)</onclick>
+					</control>
+
+					<control type="radiobutton" id="937">
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>344</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<selected>Skin.HasSetting(SubmenuMovieActors.Enabled)</selected>
+						<onclick>Skin.ToggleSetting(SubmenuMovieActors.Enabled)</onclick>
+					</control>
+
+					<control type="radiobutton" id="938">
+						<description>Enable item 1</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>90020</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<selected>Skin.HasSetting(SubmenuMovieCustom.1.Enabled)</selected>
+						<onclick>Skin.ToggleSetting(SubmenuMovieCustom.1.Enabled)</onclick>
+						<onclick>Skin.Reset(SubmenuMovieCustom.1.Type)</onclick>
+						<onclick>Skin.Reset(SubmenuMovieCustom.1.Path)</onclick>
+						<onclick>Skin.Reset(SubmenuMovieCustom.1.Label)</onclick>
+						<onclick>Skin.Reset(SubmenuMovieCustom.1.Icon)</onclick>
+					</control>
+					<control type="button" id="939">
+						<description>Item type</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>90007</label>
+						<label2>[COLOR=selected]$INFO[Skin.String(SubmenuMovieCustom.1.Type)][/COLOR]</label2>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick condition="Stringcompare(Skin.String(SubmenuMovieCustom.1.Type),Favourite) | IsEmpty(Skin.String(SubmenuMovieCustom.1.Type))">Skin.SetString(SubmenuMovieCustom.1.Type,Addon)</onclick>
+                		<onclick condition="Stringcompare(Skin.String(SubmenuMovieCustom.1.Type),Music Playlist)">Skin.SetString(SubmenuMovieCustom.1.Type,Favourite)</onclick>
+                		<onclick condition="Stringcompare(Skin.String(SubmenuMovieCustom.1.Type),Video Playlist)">Skin.SetString(SubmenuMovieCustom.1.Type,Music Playlist)</onclick>
+                		<onclick condition="Stringcompare(Skin.String(SubmenuMovieCustom.1.Type),Addon)">Skin.SetString(SubmenuMovieCustom.1.Type,Video Playlist)</onclick>
+                		<onclick condition="Stringcompare(Skin.String(SubmenuMovieCustom.1.Type),Favourite)">Skin.SetString(SubmenuMovieCustom.1.Type,Addon)</onclick>
+                		<onclick>Skin.Reset(SubmenuMovieCustom.1.Path)</onclick>
+                		<onclick>Skin.Reset(SubmenuMovieCustom.1.Label)</onclick>
+                		<onclick>Skin.Reset(SubmenuMovieCustom.1.Icon)</onclick>
+						<visible>Skin.HasSetting(SubmenuMovieCustom.1.Enabled)</visible>
+					</control>
+					<control type="button" id="940">
+						<description>Item selection</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>90008</label>
+						<label2>[COLOR=selected]$INFO[Skin.String(SubmenuMovieCustom.1.Label)][/COLOR]</label2>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick condition="Stringcompare(Skin.String(SubmenuMovieCustom.1.Type),Video Playlist)">Skin.SetFile(SubmenuMovieCustom.1.Path,.xsp,special://videoplaylists)</onclick>
+						<onclick condition="Stringcompare(Skin.String(SubmenuMovieCustom.1.Type),Music Playlist)">Skin.SetFile(SubmenuMovieCustom.1.Path,.xsp|.m3u,special://musicplaylists)</onclick>
+						<onclick condition="Stringcompare(Skin.String(SubmenuMovieCustom.1.Type),Favourite)">RunScript(script.favourites,property=SubmenuMovieCustom.1)</onclick>
+						<onclick condition="Stringcompare(Skin.String(SubmenuMovieCustom.1.Type),Addon)">Skin.SetAddon(SubmenuMovieCustom.1.Path,xbmc.addon.video,xbmc.addon.audio,xbmc.addon.image,xbmc.addon.executable)</onclick>
+						<onclick>Skin.Reset(SubmenuMovieCustom.1.Label)</onclick>
+						<onclick condition="Stringcompare(Skin.String(SubmenuMovieCustom.1.Type),Video Playlist) | Stringcompare(Skin.String(SubmenuMovieCustom.1.Type),Music Playlist)">Skin.SetString(SubmenuMovieCustom.1.Label)</onclick>
+						<onclick condition="Stringcompare(Skin.String(SubmenuMovieCustom.1.Type),Addon)">Skin.SetString(SubmenuMovieCustom.1.Label,$INFO[system.addontitle(Skin.String(SubmenuMovieCustom.1.Path))])</onclick>
+						<visible>Skin.HasSetting(SubmenuMovieCustom.1.Enabled)</visible>
+					</control>
+
+					<control type="button" id="941">
+						<description>Label</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>90011</label>
+						<label2>[COLOR=selected]$INFO[Skin.String(SubmenuMovieCustom.1.Label)][/COLOR]</label2>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick>Skin.SetString(SubmenuMovieCustom.1.Label)</onclick>
+						<visible>Skin.HasSetting(SubmenuMovieCustom.1.Enabled) + [Stringcompare(Skin.String(SubmenuMovieCustom.1.Type),Favourite) | Stringcompare(Skin.String(SubmenuMovieCustom.1.Type),Addon)]</visible>
+					</control>
+
+					<control type="radiobutton" id="942">
+						<description>Enable item 2</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>90021</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<selected>Skin.HasSetting(SubmenuMovieCustom.2.Enabled)</selected>
+						<onclick>Skin.ToggleSetting(SubmenuMovieCustom.2.Enabled)</onclick>
+						<onclick>Skin.Reset(SubmenuMovieCustom.2.Type)</onclick>
+						<onclick>Skin.Reset(SubmenuMovieCustom.2.Path)</onclick>
+						<onclick>Skin.Reset(SubmenuMovieCustom.2.Label)</onclick>
+						<onclick>Skin.Reset(SubmenuMovieCustom.2.Icon)</onclick>
+					</control>
+					<control type="button" id="943">
+						<description>Item type</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>90007</label>
+						<label2>[COLOR=selected]$INFO[Skin.String(SubmenuMovieCustom.2.Type)][/COLOR]</label2>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick condition="Stringcompare(Skin.String(SubmenuMovieCustom.2.Type),Favourite) | IsEmpty(Skin.String(SubmenuMovieCustom.2.Type))">Skin.SetString(SubmenuMovieCustom.2.Type,Addon)</onclick>
+                		<onclick condition="Stringcompare(Skin.String(SubmenuMovieCustom.2.Type),Music Playlist)">Skin.SetString(SubmenuMovieCustom.2.Type,Favourite)</onclick>
+                		<onclick condition="Stringcompare(Skin.String(SubmenuMovieCustom.2.Type),Video Playlist)">Skin.SetString(SubmenuMovieCustom.2.Type,Music Playlist)</onclick>
+                		<onclick condition="Stringcompare(Skin.String(SubmenuMovieCustom.2.Type),Addon)">Skin.SetString(SubmenuMovieCustom.2.Type,Video Playlist)</onclick>
+                		<onclick condition="Stringcompare(Skin.String(SubmenuMovieCustom.2.Type),Favourite)">Skin.SetString(SubmenuMovieCustom.2.Type,Addon)</onclick>
+                		<onclick>Skin.Reset(SubmenuMovieCustom.2.Path)</onclick>
+                		<onclick>Skin.Reset(SubmenuMovieCustom.2.Label)</onclick>
+                		<onclick>Skin.Reset(SubmenuMovieCustom.2.Icon)</onclick>
+						<visible>Skin.HasSetting(SubmenuMovieCustom.2.Enabled)</visible>
+					</control>
+					<control type="button" id="944">
+						<description>Item selection</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>90008</label>
+						<label2>[COLOR=selected]$INFO[Skin.String(SubmenuMovieCustom.2.Label)][/COLOR]</label2>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick condition="Stringcompare(Skin.String(SubmenuMovieCustom.2.Type),Video Playlist)">Skin.SetFile(SubmenuMovieCustom.2.Path,.xsp,special://videoplaylists)</onclick>
+						<onclick condition="Stringcompare(Skin.String(SubmenuMovieCustom.2.Type),Music Playlist)">Skin.SetFile(SubmenuMovieCustom.2.Path,.xsp|.m3u,special://musicplaylists)</onclick>
+						<onclick condition="Stringcompare(Skin.String(SubmenuMovieCustom.2.Type),Favourite)">RunScript(script.favourites,property=SubmenuMovieCustom.2)</onclick>
+						<onclick condition="Stringcompare(Skin.String(SubmenuMovieCustom.2.Type),Addon)">Skin.SetAddon(SubmenuMovieCustom.2.Path,xbmc.addon.video,xbmc.addon.audio,xbmc.addon.image,xbmc.addon.executable)</onclick>
+						<onclick>Skin.Reset(SubmenuMovieCustom.2.Label)</onclick>
+						<onclick condition="Stringcompare(Skin.String(SubmenuMovieCustom.2.Type),Video Playlist) | Stringcompare(Skin.String(SubmenuMovieCustom.2.Type),Music Playlist)">Skin.SetString(SubmenuMovieCustom.2.Label)</onclick>
+						<onclick condition="Stringcompare(Skin.String(SubmenuMovieCustom.2.Type),Addon)">Skin.SetString(SubmenuMovieCustom.2.Label,$INFO[system.addontitle(Skin.String(SubmenuMovieCustom.2.Path))])</onclick>
+						<visible>Skin.HasSetting(SubmenuMovieCustom.2.Enabled)</visible>
+					</control>
+
+					<control type="button" id="945">
+						<description>Label</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>90011</label>
+						<label2>[COLOR=selected]$INFO[Skin.String(SubmenuMovieCustom.2.Label)][/COLOR]</label2>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick>Skin.SetString(SubmenuMovieCustom.2.Label)</onclick>
+						<visible>Skin.HasSetting(SubmenuMovieCustom.2.Enabled) + [Stringcompare(Skin.String(SubmenuMovieCustom.2.Type),Favourite) | Stringcompare(Skin.String(SubmenuMovieCustom.2.Type),Addon)]</visible>
+					</control>
+
+					<control type="radiobutton" id="946">
+						<description>Custom item 3</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>90022</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<selected>Skin.HasSetting(SubmenuMovieCustom.3.Enabled)</selected>
+						<onclick>Skin.ToggleSetting(SubmenuMovieCustom.3.Enabled)</onclick>
+						<onclick>Skin.Reset(SubmenuMovieCustom.3.Type)</onclick>
+						<onclick>Skin.Reset(SubmenuMovieCustom.3.Path)</onclick>
+						<onclick>Skin.Reset(SubmenuMovieCustom.3.Label)</onclick>
+						<onclick>Skin.Reset(SubmenuMovieCustom.3.Icon)</onclick>
+					</control>
+					<control type="button" id="947">
+						<description>Item type</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>90007</label>
+						<label2>[COLOR=selected]$INFO[Skin.String(SubmenuMovieCustom.3.Type)][/COLOR]</label2>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick condition="Stringcompare(Skin.String(SubmenuMovieCustom.3.Type),Favourite) | IsEmpty(Skin.String(SubmenuMovieCustom.3.Type))">Skin.SetString(SubmenuMovieCustom.3.Type,Addon)</onclick>
+                		<onclick condition="Stringcompare(Skin.String(SubmenuMovieCustom.3.Type),Music Playlist)">Skin.SetString(SubmenuMovieCustom.3.Type,Favourite)</onclick>
+                		<onclick condition="Stringcompare(Skin.String(SubmenuMovieCustom.3.Type),Video Playlist)">Skin.SetString(SubmenuMovieCustom.3.Type,Music Playlist)</onclick>
+                		<onclick condition="Stringcompare(Skin.String(SubmenuMovieCustom.3.Type),Addon)">Skin.SetString(SubmenuMovieCustom.3.Type,Video Playlist)</onclick>
+                		<onclick condition="Stringcompare(Skin.String(SubmenuMovieCustom.3.Type),Favourite)">Skin.SetString(SubmenuMovieCustom.3.Type,Addon)</onclick>
+                		<onclick>Skin.Reset(SubmenuMovieCustom.3.Path)</onclick>
+                		<onclick>Skin.Reset(SubmenuMovieCustom.3.Label)</onclick>
+                		<onclick>Skin.Reset(SubmenuMovieCustom.3.Icon)</onclick>
+						<visible>Skin.HasSetting(SubmenuMovieCustom.3.Enabled)</visible>
+					</control>
+					<control type="button" id="948">
+						<description>Item selection</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>90008</label>
+						<label2>[COLOR=selected]$INFO[Skin.String(SubmenuMovieCustom.3.Label)][/COLOR]</label2>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick condition="Stringcompare(Skin.String(SubmenuMovieCustom.3.Type),Video Playlist)">Skin.SetFile(SubmenuMovieCustom.3.Path,.xsp,special://videoplaylists)</onclick>
+						<onclick condition="Stringcompare(Skin.String(SubmenuMovieCustom.3.Type),Music Playlist)">Skin.SetFile(SubmenuMovieCustom.3.Path,.xsp|.m3u,special://musicplaylists)</onclick>
+						<onclick condition="Stringcompare(Skin.String(SubmenuMovieCustom.3.Type),Favourite)">RunScript(script.favourites,property=SubmenuMovieCustom.3)</onclick>
+						<onclick condition="Stringcompare(Skin.String(SubmenuMovieCustom.3.Type),Addon)">Skin.SetAddon(SubmenuMovieCustom.3.Path,xbmc.addon.video,xbmc.addon.audio,xbmc.addon.image,xbmc.addon.executable)</onclick>
+						<onclick>Skin.Reset(SubmenuMovieCustom.3.Label)</onclick>
+						<onclick condition="Stringcompare(Skin.String(SubmenuMovieCustom.3.Type),Video Playlist) | Stringcompare(Skin.String(SubmenuMovieCustom.3.Type),Music Playlist)">Skin.SetString(SubmenuMovieCustom.3.Label)</onclick>
+						<onclick condition="Stringcompare(Skin.String(SubmenuMovieCustom.3.Type),Addon)">Skin.SetString(SubmenuMovieCustom.3.Label,$INFO[system.addontitle(Skin.String(SubmenuMovieCustom.3.Path))])</onclick>
+						<visible>Skin.HasSetting(SubmenuMovieCustom.3.Enabled)</visible>
+					</control>
+
+					<control type="button" id="949">
+						<description>Label</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>90011</label>
+						<label2>[COLOR=selected]$INFO[Skin.String(SubmenuMovieCustom.3.Label)][/COLOR]</label2>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick>Skin.SetString(SubmenuMovieCustom.3.Label)</onclick>
+						<visible>Skin.HasSetting(SubmenuMovieCustom.3.Enabled) + [Stringcompare(Skin.String(SubmenuMovieCustom.3.Type),Favourite) | Stringcompare(Skin.String(SubmenuMovieCustom.3.Type),Addon)]</visible>
+					</control>
+
+					<control type="label" id="950">
+						<description>TV Shows submenu</description>
+						<width>750</width>
+						<height>45</height>
+						<font>font13_title</font>
+						<label>20343</label>
+						<textcolor>blue</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<align>left</align>
+						<aligny>center</aligny>
+					</control>
+
+					<control type="radiobutton" id="951">
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>20387</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<selected>Skin.HasSetting(SubmenuTVRecent.Enabled)</selected>
+						<onclick>Skin.ToggleSetting(SubmenuTVRecent.Enabled)</onclick>
+					</control>
+
+					<control type="radiobutton" id="952">
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>369</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<selected>Skin.HasSetting(SubmenuTVTitles.Enabled)</selected>
+						<onclick>Skin.ToggleSetting(SubmenuTVTitles.Enabled)</onclick>
+					</control>
+
+					<control type="radiobutton" id="953">
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>135</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<selected>Skin.HasSetting(SubmenuTVGenres.Enabled)</selected>
+						<onclick>Skin.ToggleSetting(SubmenuTVGenres.Enabled)</onclick>
+					</control>
+
+					<control type="radiobutton" id="954">
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>652</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<selected>Skin.HasSetting(SubmenuTVYears.Enabled)</selected>
+						<onclick>Skin.ToggleSetting(SubmenuTVYears.Enabled)</onclick>
+					</control>
+
+					<control type="radiobutton" id="955">
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>344</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<selected>Skin.HasSetting(SubmenuTVActors.Enabled)</selected>
+						<onclick>Skin.ToggleSetting(SubmenuTVActors.Enabled)</onclick>
+					</control>
+
+					<control type="radiobutton" id="956">
+						<description>Enable item 1</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>90020</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<selected>Skin.HasSetting(SubmenuTVCustom.1.Enabled)</selected>
+						<onclick>Skin.ToggleSetting(SubmenuTVCustom.1.Enabled)</onclick>
+						<onclick>Skin.Reset(SubmenuTVCustom.1.Type)</onclick>
+						<onclick>Skin.Reset(SubmenuTVCustom.1.Path)</onclick>
+						<onclick>Skin.Reset(SubmenuTVCustom.1.Label)</onclick>
+						<onclick>Skin.Reset(SubmenuTVCustom.1.Icon)</onclick>
+					</control>
+					<control type="button" id="957">
+						<description>Item type</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>90007</label>
+						<label2>[COLOR=selected]$INFO[Skin.String(SubmenuTVCustom.1.Type)][/COLOR]</label2>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick condition="Stringcompare(Skin.String(SubmenuTVCustom.1.Type),Favourite) | IsEmpty(Skin.String(SubmenuTVCustom.1.Type))">Skin.SetString(SubmenuTVCustom.1.Type,Addon)</onclick>
+                		<onclick condition="Stringcompare(Skin.String(SubmenuTVCustom.1.Type),Music Playlist)">Skin.SetString(SubmenuTVCustom.1.Type,Favourite)</onclick>
+                		<onclick condition="Stringcompare(Skin.String(SubmenuTVCustom.1.Type),Video Playlist)">Skin.SetString(SubmenuTVCustom.1.Type,Music Playlist)</onclick>
+                		<onclick condition="Stringcompare(Skin.String(SubmenuTVCustom.1.Type),Addon)">Skin.SetString(SubmenuTVCustom.1.Type,Video Playlist)</onclick>
+                		<onclick condition="Stringcompare(Skin.String(SubmenuTVCustom.1.Type),Favourite)">Skin.SetString(SubmenuTVCustom.1.Type,Addon)</onclick>
+                		<onclick>Skin.Reset(SubmenuTVCustom.1.Path)</onclick>
+                		<onclick>Skin.Reset(SubmenuTVCustom.1.Label)</onclick>
+                		<onclick>Skin.Reset(SubmenuTVCustom.1.Icon)</onclick>
+						<visible>Skin.HasSetting(SubmenuTVCustom.1.Enabled)</visible>
+					</control>
+					<control type="button" id="958">
+						<description>Item selection</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>90008</label>
+						<label2>[COLOR=selected]$INFO[Skin.String(SubmenuTVCustom.1.Label)][/COLOR]</label2>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick condition="Stringcompare(Skin.String(SubmenuTVCustom.1.Type),Video Playlist)">Skin.SetFile(SubmenuTVCustom.1.Path,.xsp,special://videoplaylists)</onclick>
+						<onclick condition="Stringcompare(Skin.String(SubmenuTVCustom.1.Type),Music Playlist)">Skin.SetFile(SubmenuTVCustom.1.Path,.xsp|.m3u,special://musicplaylists)</onclick>
+						<onclick condition="Stringcompare(Skin.String(SubmenuTVCustom.1.Type),Favourite)">RunScript(script.favourites,property=SubmenuTVCustom.1)</onclick>
+						<onclick condition="Stringcompare(Skin.String(SubmenuTVCustom.1.Type),Addon)">Skin.SetAddon(SubmenuTVCustom.1.Path,xbmc.addon.video,xbmc.addon.audio,xbmc.addon.image,xbmc.addon.executable)</onclick>
+						<onclick>Skin.Reset(SubmenuTVCustom.1.Label)</onclick>
+						<onclick condition="Stringcompare(Skin.String(SubmenuTVCustom.1.Type),Video Playlist) | Stringcompare(Skin.String(SubmenuTVCustom.1.Type),Music Playlist)">Skin.SetString(SubmenuTVCustom.1.Label)</onclick>
+						<onclick condition="Stringcompare(Skin.String(SubmenuTVCustom.1.Type),Addon)">Skin.SetString(SubmenuTVCustom.1.Label,$INFO[system.addontitle(Skin.String(SubmenuTVCustom.1.Path))])</onclick>
+						<visible>Skin.HasSetting(SubmenuTVCustom.1.Enabled)</visible>
+					</control>
+
+					<control type="button" id="959">
+						<description>Label</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>90011</label>
+						<label2>[COLOR=selected]$INFO[Skin.String(SubmenuTVCustom.1.Label)][/COLOR]</label2>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick>Skin.SetString(SubmenuTVCustom.1.Label)</onclick>
+						<visible>Skin.HasSetting(SubmenuTVCustom.1.Enabled) + [Stringcompare(Skin.String(SubmenuTVCustom.1.Type),Favourite) | Stringcompare(Skin.String(SubmenuTVCustom.1.Type),Addon)]</visible>
+					</control>
+
+					<control type="radiobutton" id="960">
+						<description>Enable item 2</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>90021</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<selected>Skin.HasSetting(SubmenuTVCustom.2.Enabled)</selected>
+						<onclick>Skin.ToggleSetting(SubmenuTVCustom.2.Enabled)</onclick>
+						<onclick>Skin.Reset(SubmenuTVCustom.2.Type)</onclick>
+						<onclick>Skin.Reset(SubmenuTVCustom.2.Path)</onclick>
+						<onclick>Skin.Reset(SubmenuTVCustom.2.Label)</onclick>
+						<onclick>Skin.Reset(SubmenuTVCustom.2.Icon)</onclick>
+					</control>
+					<control type="button" id="961">
+						<description>Item type</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>90007</label>
+						<label2>[COLOR=selected]$INFO[Skin.String(SubmenuTVCustom.2.Type)][/COLOR]</label2>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick condition="Stringcompare(Skin.String(SubmenuTVCustom.2.Type),Favourite) | IsEmpty(Skin.String(SubmenuTVCustom.2.Type))">Skin.SetString(SubmenuTVCustom.2.Type,Addon)</onclick>
+                		<onclick condition="Stringcompare(Skin.String(SubmenuTVCustom.2.Type),Music Playlist)">Skin.SetString(SubmenuTVCustom.2.Type,Favourite)</onclick>
+                		<onclick condition="Stringcompare(Skin.String(SubmenuTVCustom.2.Type),Video Playlist)">Skin.SetString(SubmenuTVCustom.2.Type,Music Playlist)</onclick>
+                		<onclick condition="Stringcompare(Skin.String(SubmenuTVCustom.2.Type),Addon)">Skin.SetString(SubmenuTVCustom.2.Type,Video Playlist)</onclick>
+                		<onclick condition="Stringcompare(Skin.String(SubmenuTVCustom.2.Type),Favourite)">Skin.SetString(SubmenuTVCustom.2.Type,Addon)</onclick>
+                		<onclick>Skin.Reset(SubmenuTVCustom.2.Path)</onclick>
+                		<onclick>Skin.Reset(SubmenuTVCustom.2.Label)</onclick>
+                		<onclick>Skin.Reset(SubmenuTVCustom.2.Icon)</onclick>
+						<visible>Skin.HasSetting(SubmenuTVCustom.2.Enabled)</visible>
+					</control>
+					<control type="button" id="962">
+						<description>Item selection</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>90008</label>
+						<label2>[COLOR=selected]$INFO[Skin.String(SubmenuTVCustom.2.Label)][/COLOR]</label2>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick condition="Stringcompare(Skin.String(SubmenuTVCustom.2.Type),Video Playlist)">Skin.SetFile(SubmenuTVCustom.2.Path,.xsp,special://videoplaylists)</onclick>
+						<onclick condition="Stringcompare(Skin.String(SubmenuTVCustom.2.Type),Music Playlist)">Skin.SetFile(SubmenuTVCustom.2.Path,.xsp|.m3u,special://musicplaylists)</onclick>
+						<onclick condition="Stringcompare(Skin.String(SubmenuTVCustom.2.Type),Favourite)">RunScript(script.favourites,property=SubmenuTVCustom.2)</onclick>
+						<onclick condition="Stringcompare(Skin.String(SubmenuTVCustom.2.Type),Addon)">Skin.SetAddon(SubmenuTVCustom.2.Path,xbmc.addon.video,xbmc.addon.audio,xbmc.addon.image,xbmc.addon.executable)</onclick>
+						<onclick>Skin.Reset(SubmenuTVCustom.2.Label)</onclick>
+						<onclick condition="Stringcompare(Skin.String(SubmenuTVCustom.2.Type),Video Playlist) | Stringcompare(Skin.String(SubmenuTVCustom.2.Type),Music Playlist)">Skin.SetString(SubmenuTVCustom.2.Label)</onclick>
+						<onclick condition="Stringcompare(Skin.String(SubmenuTVCustom.2.Type),Addon)">Skin.SetString(SubmenuTVCustom.2.Label,$INFO[system.addontitle(Skin.String(SubmenuTVCustom.2.Path))])</onclick>
+						<visible>Skin.HasSetting(SubmenuTVCustom.2.Enabled)</visible>
+					</control>
+
+					<control type="button" id="963">
+						<description>Label</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>90011</label>
+						<label2>[COLOR=selected]$INFO[Skin.String(SubmenuTVCustom.2.Label)][/COLOR]</label2>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick>Skin.SetString(SubmenuTVCustom.2.Label)</onclick>
+						<visible>Skin.HasSetting(SubmenuTVCustom.2.Enabled) + [Stringcompare(Skin.String(SubmenuTVCustom.2.Type),Favourite) | Stringcompare(Skin.String(SubmenuTVCustom.2.Type),Addon)]</visible>
+					</control>
+
+					<control type="radiobutton" id="964">
+						<description>Custom item 3</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>90022</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<selected>Skin.HasSetting(SubmenuTVCustom.3.Enabled)</selected>
+						<onclick>Skin.ToggleSetting(SubmenuTVCustom.3.Enabled)</onclick>
+						<onclick>Skin.Reset(SubmenuTVCustom.3.Type)</onclick>
+						<onclick>Skin.Reset(SubmenuTVCustom.3.Path)</onclick>
+						<onclick>Skin.Reset(SubmenuTVCustom.3.Label)</onclick>
+						<onclick>Skin.Reset(SubmenuTVCustom.3.Icon)</onclick>
+					</control>
+					<control type="button" id="965">
+						<description>Item type</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>90007</label>
+						<label2>[COLOR=selected]$INFO[Skin.String(SubmenuTVCustom.3.Type)][/COLOR]</label2>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick condition="Stringcompare(Skin.String(SubmenuTVCustom.3.Type),Favourite) | IsEmpty(Skin.String(SubmenuTVCustom.3.Type))">Skin.SetString(SubmenuTVCustom.3.Type,Addon)</onclick>
+                		<onclick condition="Stringcompare(Skin.String(SubmenuTVCustom.3.Type),Music Playlist)">Skin.SetString(SubmenuTVCustom.3.Type,Favourite)</onclick>
+                		<onclick condition="Stringcompare(Skin.String(SubmenuTVCustom.3.Type),Video Playlist)">Skin.SetString(SubmenuTVCustom.3.Type,Music Playlist)</onclick>
+                		<onclick condition="Stringcompare(Skin.String(SubmenuTVCustom.3.Type),Addon)">Skin.SetString(SubmenuTVCustom.3.Type,Video Playlist)</onclick>
+                		<onclick condition="Stringcompare(Skin.String(SubmenuTVCustom.3.Type),Favourite)">Skin.SetString(SubmenuTVCustom.3.Type,Addon)</onclick>
+                		<onclick>Skin.Reset(SubmenuTVCustom.3.Path)</onclick>
+                		<onclick>Skin.Reset(SubmenuTVCustom.3.Label)</onclick>
+                		<onclick>Skin.Reset(SubmenuTVCustom.3.Icon)</onclick>
+						<visible>Skin.HasSetting(SubmenuTVCustom.3.Enabled)</visible>
+					</control>
+					<control type="button" id="966">
+						<description>Item selection</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>90008</label>
+						<label2>[COLOR=selected]$INFO[Skin.String(SubmenuTVCustom.3.Label)][/COLOR]</label2>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick condition="Stringcompare(Skin.String(SubmenuTVCustom.3.Type),Video Playlist)">Skin.SetFile(SubmenuTVCustom.3.Path,.xsp,special://videoplaylists)</onclick>
+						<onclick condition="Stringcompare(Skin.String(SubmenuTVCustom.3.Type),Music Playlist)">Skin.SetFile(SubmenuTVCustom.3.Path,.xsp|.m3u,special://musicplaylists)</onclick>
+						<onclick condition="Stringcompare(Skin.String(SubmenuTVCustom.3.Type),Favourite)">RunScript(script.favourites,property=SubmenuTVCustom.3)</onclick>
+						<onclick condition="Stringcompare(Skin.String(SubmenuTVCustom.3.Type),Addon)">Skin.SetAddon(SubmenuTVCustom.3.Path,xbmc.addon.video,xbmc.addon.audio,xbmc.addon.image,xbmc.addon.executable)</onclick>
+						<onclick>Skin.Reset(SubmenuTVCustom.3.Label)</onclick>
+						<onclick condition="Stringcompare(Skin.String(SubmenuTVCustom.3.Type),Video Playlist) | Stringcompare(Skin.String(SubmenuTVCustom.3.Type),Music Playlist)">Skin.SetString(SubmenuTVCustom.3.Label)</onclick>
+						<onclick condition="Stringcompare(Skin.String(SubmenuTVCustom.3.Type),Addon)">Skin.SetString(SubmenuTVCustom.3.Label,$INFO[system.addontitle(Skin.String(SubmenuTVCustom.3.Path))])</onclick>
+						<visible>Skin.HasSetting(SubmenuTVCustom.3.Enabled)</visible>
+					</control>
+
+					<control type="button" id="967">
+						<description>Label</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>90011</label>
+						<label2>[COLOR=selected]$INFO[Skin.String(SubmenuTVCustom.3.Label)][/COLOR]</label2>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick>Skin.SetString(SubmenuTVCustom.3.Label)</onclick>
+						<visible>Skin.HasSetting(SubmenuTVCustom.3.Enabled) + [Stringcompare(Skin.String(SubmenuTVCustom.3.Type),Favourite) | Stringcompare(Skin.String(SubmenuTVCustom.3.Type),Addon)]</visible>
+					</control>
+<-- Music -->
+					<control type="label" id="968">
+						<description>Music submenu</description>
+						<width>750</width>
+						<height>45</height>
+						<font>font13_title</font>
+						<label>2</label>
+						<textcolor>blue</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<align>left</align>
+						<aligny>center</aligny>
+					</control>
+
+					<control type="radiobutton" id="969">
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>133</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<selected>Skin.HasSetting(SubmenuMusicArtists.Enabled)</selected>
+						<onclick>Skin.ToggleSetting(SubmenuMusicArtists.Enabled)</onclick>
+					</control>
+
+					<control type="radiobutton" id="970">
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>132</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<selected>Skin.HasSetting(SubmenuMusicAlbums.Enabled)</selected>
+						<onclick>Skin.ToggleSetting(SubmenuMusicAlbums.Enabled)</onclick>
+					</control>
+
+					<control type="radiobutton" id="971">
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>134</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<selected>Skin.HasSetting(SubmenuMusicSongs.Enabled)</selected>
+						<onclick>Skin.ToggleSetting(SubmenuMusicSongs.Enabled)</onclick>
+					</control>
+
+					<control type="radiobutton" id="972">
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>744</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<selected>Skin.HasSetting(SubmenuMusicFiles.Enabled)</selected>
+						<onclick>Skin.ToggleSetting(SubmenuMusicFiles.Enabled)</onclick>
+					</control>
+
+					<control type="radiobutton" id="973">
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>14022</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<selected>Skin.HasSetting(SubmenuMusicLibrary.Enabled)</selected>
+						<onclick>Skin.ToggleSetting(SubmenuMusicLibrary.Enabled)</onclick>
+					</control>
+
+					<control type="radiobutton" id="974">
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>24000</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<selected>Skin.HasSetting(SubmenuMusicAddons.Enabled)</selected>
+						<onclick>Skin.ToggleSetting(SubmenuMusicAddons.Enabled)</onclick>
+					</control>
+
+					<control type="radiobutton" id="975">
+						<description>Enable item 1</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>90020</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<selected>Skin.HasSetting(SubmenuMusicCustom.1.Enabled)</selected>
+						<onclick>Skin.ToggleSetting(SubmenuMusicCustom.1.Enabled)</onclick>
+						<onclick>Skin.Reset(SubmenuMusicCustom.1.Type)</onclick>
+						<onclick>Skin.Reset(SubmenuMusicCustom.1.Path)</onclick>
+						<onclick>Skin.Reset(SubmenuMusicCustom.1.Label)</onclick>
+						<onclick>Skin.Reset(SubmenuMusicCustom.1.Icon)</onclick>
+					</control>
+					<control type="button" id="976">
+						<description>Item type</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>90007</label>
+						<label2>[COLOR=selected]$INFO[Skin.String(SubmenuMusicCustom.1.Type)][/COLOR]</label2>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick condition="Stringcompare(Skin.String(SubmenuMusicCustom.1.Type),Favourite) | IsEmpty(Skin.String(SubmenuMusicCustom.1.Type))">Skin.SetString(SubmenuMusicCustom.1.Type,Addon)</onclick>
+                		<onclick condition="Stringcompare(Skin.String(SubmenuMusicCustom.1.Type),Music Playlist)">Skin.SetString(SubmenuMusicCustom.1.Type,Favourite)</onclick>
+                		<onclick condition="Stringcompare(Skin.String(SubmenuMusicCustom.1.Type),Video Playlist)">Skin.SetString(SubmenuMusicCustom.1.Type,Music Playlist)</onclick>
+                		<onclick condition="Stringcompare(Skin.String(SubmenuMusicCustom.1.Type),Addon)">Skin.SetString(SubmenuMusicCustom.1.Type,Video Playlist)</onclick>
+                		<onclick condition="Stringcompare(Skin.String(SubmenuMusicCustom.1.Type),Favourite)">Skin.SetString(SubmenuMusicCustom.1.Type,Addon)</onclick>
+                		<onclick>Skin.Reset(SubmenuMusicCustom.1.Path)</onclick>
+                		<onclick>Skin.Reset(SubmenuMusicCustom.1.Label)</onclick>
+                		<onclick>Skin.Reset(SubmenuMusicCustom.1.Icon)</onclick>
+						<visible>Skin.HasSetting(SubmenuMusicCustom.1.Enabled)</visible>
+					</control>
+					<control type="button" id="977">
+						<description>Item selection</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>90008</label>
+						<label2>[COLOR=selected]$INFO[Skin.String(SubmenuMusicCustom.1.Label)][/COLOR]</label2>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick condition="Stringcompare(Skin.String(SubmenuMusicCustom.1.Type),Video Playlist)">Skin.SetFile(SubmenuMusicCustom.1.Path,.xsp,special://videoplaylists)</onclick>
+						<onclick condition="Stringcompare(Skin.String(SubmenuMusicCustom.1.Type),Music Playlist)">Skin.SetFile(SubmenuMusicCustom.1.Path,.xsp|.m3u,special://musicplaylists)</onclick>
+						<onclick condition="Stringcompare(Skin.String(SubmenuMusicCustom.1.Type),Favourite)">RunScript(script.favourites,property=SubmenuMusicCustom.1)</onclick>
+						<onclick condition="Stringcompare(Skin.String(SubmenuMusicCustom.1.Type),Addon)">Skin.SetAddon(SubmenuMusicCustom.1.Path,xbmc.addon.video,xbmc.addon.audio,xbmc.addon.image,xbmc.addon.executable)</onclick>
+						<onclick>Skin.Reset(SubmenuMusicCustom.1.Label)</onclick>
+						<onclick condition="Stringcompare(Skin.String(SubmenuMusicCustom.1.Type),Video Playlist) | Stringcompare(Skin.String(SubmenuMusicCustom.1.Type),Music Playlist)">Skin.SetString(SubmenuMusicCustom.1.Label)</onclick>
+						<onclick condition="Stringcompare(Skin.String(SubmenuMusicCustom.1.Type),Addon)">Skin.SetString(SubmenuMusicCustom.1.Label,$INFO[system.addontitle(Skin.String(SubmenuMusicCustom.1.Path))])</onclick>
+						<visible>Skin.HasSetting(SubmenuMusicCustom.1.Enabled)</visible>
+					</control>
+
+					<control type="button" id="978">
+						<description>Label</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>90011</label>
+						<label2>[COLOR=selected]$INFO[Skin.String(SubmenuMusicCustom.1.Label)][/COLOR]</label2>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick>Skin.SetString(SubmenuMusicCustom.1.Label)</onclick>
+						<visible>Skin.HasSetting(SubmenuMusicCustom.1.Enabled) + [Stringcompare(Skin.String(SubmenuMusicCustom.1.Type),Favourite) | Stringcompare(Skin.String(SubmenuMusicCustom.1.Type),Addon)]</visible>
+					</control>
+
+					<control type="radiobutton" id="979">
+						<description>Enable item 2</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>90021</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<selected>Skin.HasSetting(SubmenuMusicCustom.2.Enabled)</selected>
+						<onclick>Skin.ToggleSetting(SubmenuMusicCustom.2.Enabled)</onclick>
+						<onclick>Skin.Reset(SubmenuMusicCustom.2.Type)</onclick>
+						<onclick>Skin.Reset(SubmenuMusicCustom.2.Path)</onclick>
+						<onclick>Skin.Reset(SubmenuMusicCustom.2.Label)</onclick>
+						<onclick>Skin.Reset(SubmenuMusicCustom.2.Icon)</onclick>
+					</control>
+					<control type="button" id="980">
+						<description>Item type</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>90007</label>
+						<label2>[COLOR=selected]$INFO[Skin.String(SubmenuMusicCustom.2.Type)][/COLOR]</label2>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick condition="Stringcompare(Skin.String(SubmenuMusicCustom.2.Type),Favourite) | IsEmpty(Skin.String(SubmenuMusicCustom.2.Type))">Skin.SetString(SubmenuMusicCustom.2.Type,Addon)</onclick>
+                		<onclick condition="Stringcompare(Skin.String(SubmenuMusicCustom.2.Type),Music Playlist)">Skin.SetString(SubmenuMusicCustom.2.Type,Favourite)</onclick>
+                		<onclick condition="Stringcompare(Skin.String(SubmenuMusicCustom.2.Type),Video Playlist)">Skin.SetString(SubmenuMusicCustom.2.Type,Music Playlist)</onclick>
+                		<onclick condition="Stringcompare(Skin.String(SubmenuMusicCustom.2.Type),Addon)">Skin.SetString(SubmenuMusicCustom.2.Type,Video Playlist)</onclick>
+                		<onclick condition="Stringcompare(Skin.String(SubmenuMusicCustom.2.Type),Favourite)">Skin.SetString(SubmenuMusicCustom.2.Type,Addon)</onclick>
+                		<onclick>Skin.Reset(SubmenuMusicCustom.2.Path)</onclick>
+                		<onclick>Skin.Reset(SubmenuMusicCustom.2.Label)</onclick>
+                		<onclick>Skin.Reset(SubmenuMusicCustom.2.Icon)</onclick>
+						<visible>Skin.HasSetting(SubmenuMusicCustom.2.Enabled)</visible>
+					</control>
+					<control type="button" id="981">
+						<description>Item selection</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>90008</label>
+						<label2>[COLOR=selected]$INFO[Skin.String(SubmenuMusicCustom.2.Label)][/COLOR]</label2>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick condition="Stringcompare(Skin.String(SubmenuMusicCustom.2.Type),Video Playlist)">Skin.SetFile(SubmenuMusicCustom.2.Path,.xsp,special://videoplaylists)</onclick>
+						<onclick condition="Stringcompare(Skin.String(SubmenuMusicCustom.2.Type),Music Playlist)">Skin.SetFile(SubmenuMusicCustom.2.Path,.xsp|.m3u,special://musicplaylists)</onclick>
+						<onclick condition="Stringcompare(Skin.String(SubmenuMusicCustom.2.Type),Favourite)">RunScript(script.favourites,property=SubmenuMusicCustom.2)</onclick>
+						<onclick condition="Stringcompare(Skin.String(SubmenuMusicCustom.2.Type),Addon)">Skin.SetAddon(SubmenuMusicCustom.2.Path,xbmc.addon.video,xbmc.addon.audio,xbmc.addon.image,xbmc.addon.executable)</onclick>
+						<onclick>Skin.Reset(SubmenuMusicCustom.2.Label)</onclick>
+						<onclick condition="Stringcompare(Skin.String(SubmenuMusicCustom.2.Type),Video Playlist) | Stringcompare(Skin.String(SubmenuMusicCustom.2.Type),Music Playlist)">Skin.SetString(SubmenuMusicCustom.2.Label)</onclick>
+						<onclick condition="Stringcompare(Skin.String(SubmenuMusicCustom.2.Type),Addon)">Skin.SetString(SubmenuMusicCustom.2.Label,$INFO[system.addontitle(Skin.String(SubmenuMusicCustom.2.Path))])</onclick>
+						<visible>Skin.HasSetting(SubmenuMusicCustom.2.Enabled)</visible>
+					</control>
+
+					<control type="button" id="982">
+						<description>Label</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>90011</label>
+						<label2>[COLOR=selected]$INFO[Skin.String(SubmenuMusicCustom.2.Label)][/COLOR]</label2>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick>Skin.SetString(SubmenuMusicCustom.2.Label)</onclick>
+						<visible>Skin.HasSetting(SubmenuMusicCustom.2.Enabled) + [Stringcompare(Skin.String(SubmenuMusicCustom.2.Type),Favourite) | Stringcompare(Skin.String(SubmenuMusicCustom.2.Type),Addon)]</visible>
+					</control>
+
+					<control type="radiobutton" id="983">
+						<description>Custom item 3</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>90022</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<selected>Skin.HasSetting(SubmenuMusicCustom.3.Enabled)</selected>
+						<onclick>Skin.ToggleSetting(SubmenuMusicCustom.3.Enabled)</onclick>
+						<onclick>Skin.Reset(SubmenuMusicCustom.3.Type)</onclick>
+						<onclick>Skin.Reset(SubmenuMusicCustom.3.Path)</onclick>
+						<onclick>Skin.Reset(SubmenuMusicCustom.3.Label)</onclick>
+						<onclick>Skin.Reset(SubmenuMusicCustom.3.Icon)</onclick>
+					</control>
+					<control type="button" id="984">
+						<description>Item type</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>90007</label>
+						<label2>[COLOR=selected]$INFO[Skin.String(SubmenuMusicCustom.3.Type)][/COLOR]</label2>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick condition="Stringcompare(Skin.String(SubmenuMusicCustom.3.Type),Favourite) | IsEmpty(Skin.String(SubmenuMusicCustom.3.Type))">Skin.SetString(SubmenuMusicCustom.3.Type,Addon)</onclick>
+                		<onclick condition="Stringcompare(Skin.String(SubmenuMusicCustom.3.Type),Music Playlist)">Skin.SetString(SubmenuMusicCustom.3.Type,Favourite)</onclick>
+                		<onclick condition="Stringcompare(Skin.String(SubmenuMusicCustom.3.Type),Video Playlist)">Skin.SetString(SubmenuMusicCustom.3.Type,Music Playlist)</onclick>
+                		<onclick condition="Stringcompare(Skin.String(SubmenuMusicCustom.3.Type),Addon)">Skin.SetString(SubmenuMusicCustom.3.Type,Video Playlist)</onclick>
+                		<onclick condition="Stringcompare(Skin.String(SubmenuMusicCustom.3.Type),Favourite)">Skin.SetString(SubmenuMusicCustom.3.Type,Addon)</onclick>
+                		<onclick>Skin.Reset(SubmenuMusicCustom.3.Path)</onclick>
+                		<onclick>Skin.Reset(SubmenuMusicCustom.3.Label)</onclick>
+                		<onclick>Skin.Reset(SubmenuMusicCustom.3.Icon)</onclick>
+						<visible>Skin.HasSetting(SubmenuMusicCustom.3.Enabled)</visible>
+					</control>
+					<control type="button" id="985">
+						<description>Item selection</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>90008</label>
+						<label2>[COLOR=selected]$INFO[Skin.String(SubmenuMusicCustom.3.Label)][/COLOR]</label2>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick condition="Stringcompare(Skin.String(SubmenuMusicCustom.3.Type),Video Playlist)">Skin.SetFile(SubmenuMusicCustom.3.Path,.xsp,special://videoplaylists)</onclick>
+						<onclick condition="Stringcompare(Skin.String(SubmenuMusicCustom.3.Type),Music Playlist)">Skin.SetFile(SubmenuMusicCustom.3.Path,.xsp|.m3u,special://musicplaylists)</onclick>
+						<onclick condition="Stringcompare(Skin.String(SubmenuMusicCustom.3.Type),Favourite)">RunScript(script.favourites,property=SubmenuMusicCustom.3)</onclick>
+						<onclick condition="Stringcompare(Skin.String(SubmenuMusicCustom.3.Type),Addon)">Skin.SetAddon(SubmenuMusicCustom.3.Path,xbmc.addon.video,xbmc.addon.audio,xbmc.addon.image,xbmc.addon.executable)</onclick>
+						<onclick>Skin.Reset(SubmenuMusicCustom.3.Label)</onclick>
+						<onclick condition="Stringcompare(Skin.String(SubmenuMusicCustom.3.Type),Video Playlist) | Stringcompare(Skin.String(SubmenuMusicCustom.3.Type),Music Playlist)">Skin.SetString(SubmenuMusicCustom.3.Label)</onclick>
+						<onclick condition="Stringcompare(Skin.String(SubmenuMusicCustom.3.Type),Addon)">Skin.SetString(SubmenuMusicCustom.3.Label,$INFO[system.addontitle(Skin.String(SubmenuMusicCustom.3.Path))])</onclick>
+						<visible>Skin.HasSetting(SubmenuMusicCustom.3.Enabled)</visible>
+					</control>
+
+					<control type="button" id="986">
+						<description>Label</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>90011</label>
+						<label2>[COLOR=selected]$INFO[Skin.String(SubmenuMusicCustom.3.Label)][/COLOR]</label2>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick>Skin.SetString(SubmenuMusicCustom.3.Label)</onclick>
+						<visible>Skin.HasSetting(SubmenuMusicCustom.3.Enabled) + [Stringcompare(Skin.String(SubmenuMusicCustom.3.Type),Favourite) | Stringcompare(Skin.String(SubmenuMusicCustom.3.Type),Addon)]</visible>
+					</control>
+			<!-- Music -->		
+					<control type="label" id="987">
+						<description>System submenu</description>
+						<width>750</width>
+						<height>45</height>
+						<font>font13_title</font>
+						<label>13000</label>
+						<textcolor>blue</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<align>left</align>
+						<aligny>center</aligny>
+					</control>
+
+					<control type="radiobutton" id="988">
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>5</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<selected>Skin.HasSetting(SubmenuSystemSettings.Enabled)</selected>
+						<onclick>Skin.ToggleSetting(SubmenuSystemSettings.Enabled)</onclick>
+					</control>
+
+					<control type="radiobutton" id="989">
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>7</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<selected>Skin.HasSetting(SubmenuSystemFileManager.Enabled)</selected>
+						<onclick>Skin.ToggleSetting(SubmenuSystemFileManager.Enabled)</onclick>
+					</control>
+
+					<control type="radiobutton" id="990">
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>13200</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<selected>Skin.HasSetting(SubmenuSystemProfiles.Enabled)</selected>
+						<onclick>Skin.ToggleSetting(SubmenuSystemProfiles.Enabled)</onclick>
+					</control>
+
+					<control type="radiobutton" id="991">
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>130</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<selected>Skin.HasSetting(SubmenuSystemInfo.Enabled)</selected>
+						<onclick>Skin.ToggleSetting(SubmenuSystemInfo.Enabled)</onclick>
+					</control>
+
+					<control type="radiobutton" id="992">
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>20077</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<selected>Skin.HasSetting(SubmenuSystemSkin.Enabled)</selected>
+						<onclick>Skin.ToggleSetting(SubmenuSystemSkin.Enabled)</onclick>
+					</control>
+
+					<control type="label" id="993">
+						<description>Disc submenu</description>
+						<width>750</width>
+						<height>45</height>
+						<font>font13_title</font>
+						<label>427</label>
+						<textcolor>blue</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<align>left</align>
+						<aligny>center</aligny>
+					</control>
+
+					<control type="radiobutton" id="994">
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>13391</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<selected>Skin.HasSetting(SubmenuDiscEject.Enabled)</selected>
+						<onclick>Skin.ToggleSetting(SubmenuDiscEject.Enabled)</onclick>
+					</control>
+
+					<control type="label" id="995">
+						<description>PVR submenu</description>
+						<width>750</width>
+						<height>45</height>
+						<font>font13_title</font>
+						<label>90019</label>
+						<textcolor>blue</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<align>left</align>
+						<aligny>center</aligny>
+					</control>
+
+					<control type="radiobutton" id="996">
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>19023</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<selected>Skin.HasSetting(SubmenuPVRTV.Enabled)</selected>
+						<onclick>Skin.ToggleSetting(SubmenuPVRTV.Enabled)</onclick>
+					</control>
+
+					<control type="radiobutton" id="997">
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>19024</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<selected>Skin.HasSetting(SubmenuPVRRadio.Enabled)</selected>
+						<onclick>Skin.ToggleSetting(SubmenuPVRRadio.Enabled)</onclick>
+					</control>
+
+					<control type="radiobutton" id="998">
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>19017</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<selected>Skin.HasSetting(SubmenuPVRRecordings.Enabled)</selected>
+						<onclick>Skin.ToggleSetting(SubmenuPVRRecordings.Enabled)</onclick>
+					</control>
+
+					<control type="radiobutton" id="999">
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>19040</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<selected>Skin.HasSetting(SubmenuPVRTimer.Enabled)</selected>
+						<onclick>Skin.ToggleSetting(SubmenuPVRTimer.Enabled)</onclick>
+					</control>
+
+					<control type="radiobutton" id="1000">
+						<description>Enable item 1</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>90020</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<selected>Skin.HasSetting(SubmenuPVRCustom.1.Enabled)</selected>
+						<onclick>Skin.ToggleSetting(SubmenuPVRCustom.1.Enabled)</onclick>
+						<onclick>Skin.Reset(SubmenuPVRCustom.1.Type)</onclick>
+						<onclick>Skin.Reset(SubmenuPVRCustom.1.Path)</onclick>
+						<onclick>Skin.Reset(SubmenuPVRCustom.1.Label)</onclick>
+						<onclick>Skin.Reset(SubmenuPVRCustom.1.Icon)</onclick>
+					</control>
+					<control type="button" id="1001">
+						<description>Item type</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>90007</label>
+						<label2>[COLOR=selected]$INFO[Skin.String(SubmenuPVRCustom.1.Type)][/COLOR]</label2>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick condition="Stringcompare(Skin.String(SubmenuPVRCustom.1.Type),Favourite) | IsEmpty(Skin.String(SubmenuPVRCustom.1.Type))">Skin.SetString(SubmenuPVRCustom.1.Type,Addon)</onclick>
+                		<onclick condition="Stringcompare(Skin.String(SubmenuPVRCustom.1.Type),Music Playlist)">Skin.SetString(SubmenuPVRCustom.1.Type,Favourite)</onclick>
+                		<onclick condition="Stringcompare(Skin.String(SubmenuPVRCustom.1.Type),Video Playlist)">Skin.SetString(SubmenuPVRCustom.1.Type,Music Playlist)</onclick>
+                		<onclick condition="Stringcompare(Skin.String(SubmenuPVRCustom.1.Type),Addon)">Skin.SetString(SubmenuPVRCustom.1.Type,Video Playlist)</onclick>
+                		<onclick condition="Stringcompare(Skin.String(SubmenuPVRCustom.1.Type),Favourite)">Skin.SetString(SubmenuPVRCustom.1.Type,Addon)</onclick>
+                		<onclick>Skin.Reset(SubmenuPVRCustom.1.Path)</onclick>
+                		<onclick>Skin.Reset(SubmenuPVRCustom.1.Label)</onclick>
+                		<onclick>Skin.Reset(SubmenuPVRCustom.1.Icon)</onclick>
+						<visible>Skin.HasSetting(SubmenuPVRCustom.1.Enabled)</visible>
+					</control>
+					<control type="button" id="1002">
+						<description>Item selection</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>90008</label>
+						<label2>[COLOR=selected]$INFO[Skin.String(SubmenuPVRCustom.1.Label)][/COLOR]</label2>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick condition="Stringcompare(Skin.String(SubmenuPVRCustom.1.Type),Video Playlist)">Skin.SetFile(SubmenuPVRCustom.1.Path,.xsp,special://videoplaylists)</onclick>
+						<onclick condition="Stringcompare(Skin.String(SubmenuPVRCustom.1.Type),Music Playlist)">Skin.SetFile(SubmenuPVRCustom.1.Path,.xsp|.m3u,special://musicplaylists)</onclick>
+						<onclick condition="Stringcompare(Skin.String(SubmenuPVRCustom.1.Type),Favourite)">RunScript(script.favourites,property=SubmenuPVRCustom.1)</onclick>
+						<onclick condition="Stringcompare(Skin.String(SubmenuPVRCustom.1.Type),Addon)">Skin.SetAddon(SubmenuPVRCustom.1.Path,xbmc.addon.video,xbmc.addon.audio,xbmc.addon.image,xbmc.addon.executable)</onclick>
+						<onclick>Skin.Reset(SubmenuPVRCustom.1.Label)</onclick>
+						<onclick condition="Stringcompare(Skin.String(SubmenuPVRCustom.1.Type),Video Playlist) | Stringcompare(Skin.String(SubmenuPVRCustom.1.Type),Music Playlist)">Skin.SetString(SubmenuPVRCustom.1.Label)</onclick>
+						<onclick condition="Stringcompare(Skin.String(SubmenuPVRCustom.1.Type),Addon)">Skin.SetString(SubmenuPVRCustom.1.Label,$INFO[system.addontitle(Skin.String(SubmenuPVRCustom.1.Path))])</onclick>
+						<visible>Skin.HasSetting(SubmenuPVRCustom.1.Enabled)</visible>
+					</control>
+
+					<control type="button" id="1003">
+						<description>Label</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>90011</label>
+						<label2>[COLOR=selected]$INFO[Skin.String(SubmenuPVRCustom.1.Label)][/COLOR]</label2>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick>Skin.SetString(SubmenuPVRCustom.1.Label)</onclick>
+						<visible>Skin.HasSetting(SubmenuPVRCustom.1.Enabled) + [Stringcompare(Skin.String(SubmenuPVRCustom.1.Type),Favourite) | Stringcompare(Skin.String(SubmenuPVRCustom.1.Type),Addon)]</visible>
+					</control>
+
+					<control type="radiobutton" id="1004">
+						<description>Enable item 2</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>90021</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<selected>Skin.HasSetting(SubmenuPVRCustom.2.Enabled)</selected>
+						<onclick>Skin.ToggleSetting(SubmenuPVRCustom.2.Enabled)</onclick>
+						<onclick>Skin.Reset(SubmenuPVRCustom.2.Type)</onclick>
+						<onclick>Skin.Reset(SubmenuPVRCustom.2.Path)</onclick>
+						<onclick>Skin.Reset(SubmenuPVRCustom.2.Label)</onclick>
+						<onclick>Skin.Reset(SubmenuPVRCustom.2.Icon)</onclick>
+					</control>
+
+					<control type="button" id="1005">
+						<description>Item type</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>90007</label>
+						<label2>[COLOR=selected]$INFO[Skin.String(SubmenuPVRCustom.2.Type)][/COLOR]</label2>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick condition="Stringcompare(Skin.String(SubmenuPVRCustom.2.Type),Favourite) | IsEmpty(Skin.String(SubmenuPVRCustom.2.Type))">Skin.SetString(SubmenuPVRCustom.2.Type,Addon)</onclick>
+                		<onclick condition="Stringcompare(Skin.String(SubmenuPVRCustom.2.Type),Music Playlist)">Skin.SetString(SubmenuPVRCustom.2.Type,Favourite)</onclick>
+                		<onclick condition="Stringcompare(Skin.String(SubmenuPVRCustom.2.Type),Video Playlist)">Skin.SetString(SubmenuPVRCustom.2.Type,Music Playlist)</onclick>
+                		<onclick condition="Stringcompare(Skin.String(SubmenuPVRCustom.2.Type),Addon)">Skin.SetString(SubmenuPVRCustom.2.Type,Video Playlist)</onclick>
+                		<onclick condition="Stringcompare(Skin.String(SubmenuPVRCustom.2.Type),Favourite)">Skin.SetString(SubmenuPVRCustom.2.Type,Addon)</onclick>
+                		<onclick>Skin.Reset(SubmenuPVRCustom.2.Path)</onclick>
+                		<onclick>Skin.Reset(SubmenuPVRCustom.2.Label)</onclick>
+                		<onclick>Skin.Reset(SubmenuPVRCustom.2.Icon)</onclick>
+						<visible>Skin.HasSetting(SubmenuPVRCustom.2.Enabled)</visible>
+					</control>
+					<control type="button" id="1006">
+						<description>Item selection</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>90008</label>
+						<label2>[COLOR=selected]$INFO[Skin.String(SubmenuPVRCustom.2.Label)][/COLOR]</label2>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick condition="Stringcompare(Skin.String(SubmenuPVRCustom.2.Type),Video Playlist)">Skin.SetFile(SubmenuPVRCustom.2.Path,.xsp,special://videoplaylists)</onclick>
+						<onclick condition="Stringcompare(Skin.String(SubmenuPVRCustom.2.Type),Music Playlist)">Skin.SetFile(SubmenuPVRCustom.2.Path,.xsp|.m3u,special://musicplaylists)</onclick>
+						<onclick condition="Stringcompare(Skin.String(SubmenuPVRCustom.2.Type),Favourite)">RunScript(script.favourites,property=SubmenuPVRCustom.2)</onclick>
+						<onclick condition="Stringcompare(Skin.String(SubmenuPVRCustom.2.Type),Addon)">Skin.SetAddon(SubmenuPVRCustom.2.Path,xbmc.addon.video,xbmc.addon.audio,xbmc.addon.image,xbmc.addon.executable)</onclick>
+						<onclick>Skin.Reset(SubmenuPVRCustom.2.Label)</onclick>
+						<onclick condition="Stringcompare(Skin.String(SubmenuPVRCustom.2.Type),Video Playlist) | Stringcompare(Skin.String(SubmenuPVRCustom.2.Type),Music Playlist)">Skin.SetString(SubmenuPVRCustom.2.Label)</onclick>
+						<onclick condition="Stringcompare(Skin.String(SubmenuPVRCustom.2.Type),Addon)">Skin.SetString(SubmenuPVRCustom.2.Label,$INFO[system.addontitle(Skin.String(SubmenuPVRCustom.2.Path))])</onclick>
+						<visible>Skin.HasSetting(SubmenuPVRCustom.2.Enabled)</visible>
+					</control>
+
+					<control type="button" id="1007">
+						<description>Label</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>90011</label>
+						<label2>[COLOR=selected]$INFO[Skin.String(SubmenuPVRCustom.2.Label)][/COLOR]</label2>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick>Skin.SetString(SubmenuPVRCustom.2.Label)</onclick>
+						<visible>Skin.HasSetting(SubmenuPVRCustom.2.Enabled) + [Stringcompare(Skin.String(SubmenuPVRCustom.2.Type),Favourite) | Stringcompare(Skin.String(SubmenuPVRCustom.2.Type),Addon)]</visible>
+					</control>
+
+					<control type="radiobutton" id="1008">
+						<description>Custom item 3</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>90022</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<selected>Skin.HasSetting(SubmenuPVRCustom.3.Enabled)</selected>
+						<onclick>Skin.ToggleSetting(SubmenuPVRCustom.3.Enabled)</onclick>
+						<onclick>Skin.Reset(SubmenuPVRCustom.3.Type)</onclick>
+						<onclick>Skin.Reset(SubmenuPVRCustom.3.Path)</onclick>
+						<onclick>Skin.Reset(SubmenuPVRCustom.3.Label)</onclick>
+						<onclick>Skin.Reset(SubmenuPVRCustom.3.Icon)</onclick>
+					</control>
+					<control type="button" id="1009">
+						<description>Item type</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>90007</label>
+						<label2>[COLOR=selected]$INFO[Skin.String(SubmenuPVRCustom.3.Type)][/COLOR]</label2>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick condition="Stringcompare(Skin.String(SubmenuPVRCustom.3.Type),Favourite) | IsEmpty(Skin.String(SubmenuPVRCustom.3.Type))">Skin.SetString(SubmenuPVRCustom.3.Type,Addon)</onclick>
+                		<onclick condition="Stringcompare(Skin.String(SubmenuPVRCustom.3.Type),Music Playlist)">Skin.SetString(SubmenuPVRCustom.3.Type,Favourite)</onclick>
+                		<onclick condition="Stringcompare(Skin.String(SubmenuPVRCustom.3.Type),Video Playlist)">Skin.SetString(SubmenuPVRCustom.3.Type,Music Playlist)</onclick>
+                		<onclick condition="Stringcompare(Skin.String(SubmenuPVRCustom.3.Type),Addon)">Skin.SetString(SubmenuPVRCustom.3.Type,Video Playlist)</onclick>
+                		<onclick condition="Stringcompare(Skin.String(SubmenuPVRCustom.3.Type),Favourite)">Skin.SetString(SubmenuPVRCustom.3.Type,Addon)</onclick>
+                		<onclick>Skin.Reset(SubmenuPVRCustom.3.Path)</onclick>
+                		<onclick>Skin.Reset(SubmenuPVRCustom.3.Label)</onclick>
+                		<onclick>Skin.Reset(SubmenuPVRCustom.3.Icon)</onclick>
+						<visible>Skin.HasSetting(SubmenuPVRCustom.3.Enabled)</visible>
+					</control>
+					<control type="button" id="1010">
+						<description>Item selection</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>90008</label>
+						<label2>[COLOR=selected]$INFO[Skin.String(SubmenuPVRCustom.3.Label)][/COLOR]</label2>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick condition="Stringcompare(Skin.String(SubmenuPVRCustom.3.Type),Video Playlist)">Skin.SetFile(SubmenuPVRCustom.3.Path,.xsp,special://videoplaylists)</onclick>
+						<onclick condition="Stringcompare(Skin.String(SubmenuPVRCustom.3.Type),Music Playlist)">Skin.SetFile(SubmenuPVRCustom.3.Path,.xsp|.m3u,special://musicplaylists)</onclick>
+						<onclick condition="Stringcompare(Skin.String(SubmenuPVRCustom.3.Type),Favourite)">RunScript(script.favourites,property=SubmenuPVRCustom.3)</onclick>
+						<onclick condition="Stringcompare(Skin.String(SubmenuPVRCustom.3.Type),Addon)">Skin.SetAddon(SubmenuPVRCustom.3.Path,xbmc.addon.video,xbmc.addon.audio,xbmc.addon.image,xbmc.addon.executable)</onclick>
+						<onclick>Skin.Reset(SubmenuPVRCustom.3.Label)</onclick>
+						<onclick condition="Stringcompare(Skin.String(SubmenuPVRCustom.3.Type),Video Playlist) | Stringcompare(Skin.String(SubmenuPVRCustom.3.Type),Music Playlist)">Skin.SetString(SubmenuPVRCustom.3.Label)</onclick>
+						<onclick condition="Stringcompare(Skin.String(SubmenuPVRCustom.3.Type),Addon)">Skin.SetString(SubmenuPVRCustom.3.Label,$INFO[system.addontitle(Skin.String(SubmenuPVRCustom.3.Path))])</onclick>
+						<visible>Skin.HasSetting(SubmenuPVRCustom.3.Enabled)</visible>
+					</control>
+
+					<control type="button" id="1011">
+						<description>Label</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>90011</label>
+						<label2>[COLOR=selected]$INFO[Skin.String(SubmenuPVRCustom.3.Label)][/COLOR]</label2>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick>Skin.SetString(SubmenuPVRCustom.3.Label)</onclick>
+						<visible>Skin.HasSetting(SubmenuPVRCustom.3.Enabled) + [Stringcompare(Skin.String(SubmenuPVRCustom.3.Type),Favourite) | Stringcompare(Skin.String(SubmenuPVRCustom.3.Type),Addon)]</visible>
+					</control>
+
+				</control>
+
+				<control type="scrollbar" id="1012">
+					<posx>1060</posx>
+					<posy>60</posy>
+					<width>25</width>
+					<height>530</height>
+					<texturesliderbackground border="0,14,0,14">ScrollBarV.png</texturesliderbackground>
+					<texturesliderbar border="0,14,0,14">ScrollBarV_bar.png</texturesliderbar>
+					<texturesliderbarfocus border="0,14,0,14">ScrollBarV_bar_focus.png</texturesliderbarfocus>
+					<textureslidernib>ScrollBarNib.png</textureslidernib>
+					<textureslidernibfocus>ScrollBarNib.png</textureslidernibfocus>
+					<onleft>9999</onleft>
+					<onright>9000</onright>
+					<showonepage>false</showonepage>
+					<orientation>vertical</orientation>
+					<visible>Container(9000).Hasfocus(6)</visible>
+				</control>
+			</control>
+		</control>
+		<include>CommonNowPlaying</include>
+		<include>MainWindowMouseButtons</include>
+		<include>BehindDialogFadeOut</include>
+		<include>Clock</include>
+	</controls>
+</window>
