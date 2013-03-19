@@ -363,7 +363,7 @@
 			<posx>0</posx>
 			<posy>460</posy>
 			<control type="fixedlist" id="508">
-				<visible>Container.Content(Movies) | Container.Content(TVShows) | Container.Content(Sets)</visible>
+				<visible>Container.Content(Movies) | Container.Content(TVShows) | Container.Content(Sets) | Container.Content(Seasons) | Container.Content(Episodes)</visible>
 				<hitrect x="0" y="-10" w="1280" h="190" />
 				<posx>-20</posx>
 				<posy>0</posy>
